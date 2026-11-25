@@ -10,6 +10,8 @@ Analysis of the Northwind trading company dataset. Python code here generates ev
 |---|---|
 | `data/Northwind Database.xlsx` | The source dataset (8 sheets: Orders, Orders Details, Product, Customers, Suppliers, Employees, Categories, Shippers). |
 | `data/*.csv` | One CSV per sheet, exported unchanged by `scripts/01_data_check.py` (only a fully empty, unnamed Product column is dropped). |
+| `src/load.py` | Shared loader. It reads the CSVs, applies the cleaning rules (rounded discounts, Product exercise columns dropped), and joins order lines with orders, customers, products, categories and employees. It computes `Revenue = UnitPrice × Quantity × (1 − Discount)` and builds a one-row-per-order table. It stops with an error if row counts, joins or the revenue total ($1,265,793.04) don't match. |
+| `scripts/q1_discount_check.py` | Within-product check: do 25% discounts sell more units than 5%? |
 | `scripts/01_data_check.py` | Profiles every sheet and checks keys, joins, missing values and oddities, then writes the CSVs. |
 | `requirements.txt` | Pinned Python packages. |
 | `.claude/skills/python-docstrings/SKILL.md` | The course-provided docstring skill, installed for Claude Code and used to document all Python code. |
@@ -27,6 +29,9 @@ Requires Python 3.11+.
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python scripts/01_data_check.py   # data checks + CSV export
+.venv/bin/python -m src.load                # build and verify the joined tables
 ```
+
+Run all commands from the repository root.
 
 _The analysis scripts and the webpage build will be added here._
