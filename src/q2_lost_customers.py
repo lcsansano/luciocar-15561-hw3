@@ -1,26 +1,30 @@
-"""Q2: Which regular customers stopped ordering, and who should sales call first?
+"""Q2: Regular customers who stopped ordering, and whom to call first.
 
 Rules (each customer is judged against their own rhythm):
   - Regular customer: at least 5 orders in the data.
-  - Usual gap: the AVERAGE number of days between orders
-    = (last order - first order) / (number of orders - 1).
-    Not the median: customers order in bursts (several orders a few days
-    apart, then a long pause). The median picks up the short gaps inside a
-    burst and makes customers look far more frequent than they are (e.g.
-    Mere Paillarde: median 17.5 days, average 32 days), which would flag
-    customers as lost too early. The average equals the customer's real
-    long-run ordering frequency.
-  - Days quiet: days from the last order to the end of the data (1998-05-06).
-  - Likely lost: quiet for more than 2x the usual gap and more than 60 days.
-  - Overdue: quiet for more than 1.5x the usual gap and more than 45 days.
-  - Value at risk: actual revenue in the 12 months up to the customer's last
-    order (what a normal year with them was worth).
-  - Call list: likely-lost and overdue customers, ranked by value at risk.
-  - Slow buyers (usual gap of 90+ days) who are not yet flagged are marked
-    "too early to tell": in a 22-month window they cannot be quiet long
-    enough to judge. They go on a follow-up calendar instead.
-  - Check back by: last order + 2x usual gap, the date by which a customer
-    who keeps their rhythm should have ordered again.
+  - Usual gap: the AVERAGE number of days between orders = (last order -
+    first order) / (number of orders - 1). Not the median: customers
+    order in bursts (several orders a few days apart, then a long
+    pause). The median picks up the short gaps inside a burst and makes
+    customers look far more frequent than they are (e.g. Mere Paillarde:
+    median 17.5 days, average 32 days), which would flag customers as
+    lost too early. The average equals the customer's real long-run
+    ordering frequency.
+  - Days quiet: days from the last order to the end of the data
+    (1998-05-06).
+  - Likely lost: quiet for more than 2x the usual gap and more than 60
+    days.
+  - Overdue: quiet for more than 1.5x the usual gap and more than 45
+    days.
+  - Value at risk: actual revenue in the 12 months up to the customer's
+    last order (what a normal year with them was worth).
+  - Call list: likely-lost and overdue customers, ranked by value at
+    risk.
+  - Slow buyers (usual gap of 90+ days) who are not yet flagged are
+    marked "too early to tell": in a 22-month window they cannot be
+    quiet long enough to judge. They go on a follow-up calendar instead.
+  - Check back by: last order + 2x usual gap, the date by which a
+    customer who keeps their rhythm should have ordered again.
 
 Run from the project root:
     .venv/bin/python -m src.q2_lost_customers
@@ -53,6 +57,19 @@ BAND = "#f0efec"
 
 
 def customer_rhythm(lines):
+    """Measure each customer's ordering rhythm and recent value.
+
+    Args:
+        lines (pandas.DataFrame): Output of ``build_order_lines``.
+
+    Returns:
+        pandas.DataFrame: One row per customer with order count, first
+            and last order date, ``usual_gap_days`` (average gap, None
+            for one order), ``median_gap_days``, ``days_quiet``,
+            ``value_at_risk_usd`` (actual revenue in the 365 days up to
+            the last order), ``lifetime_revenue_usd``,
+            ``quiet_vs_usual`` and ``check_back_by``.
+    """
     orders = (lines.groupby(["CustomerID", "OrderID", "OrderDate"])
               ["Revenue"].sum().reset_index())
 
@@ -83,6 +100,16 @@ def customer_rhythm(lines):
 
 
 def classify(stats):
+    """Label each customer's status from their rhythm.
+
+    Args:
+        stats (pandas.DataFrame): Output of ``customer_rhythm``.
+
+    Returns:
+        pandas.DataFrame: Copy of ``stats`` with ``status``: "likely
+            lost", "overdue", "too early to tell (slow buyer)", "active"
+            or "not regular (<5 orders)".
+    """
     stats = stats.copy()
     regular = stats["orders"] >= MIN_ORDERS
     lost = (regular & (stats["quiet_vs_usual"] > LOST_RATIO)
@@ -100,6 +127,20 @@ def classify(stats):
 
 
 def call_list(stats, customers):
+    """Add contact details and build the call list and calendar.
+
+    Args:
+        stats (pandas.DataFrame): Output of ``classify``.
+        customers (pandas.DataFrame): Customers table from
+            ``load_tables``.
+
+    Returns:
+        tuple: Three items:
+            - pandas.DataFrame: All customers with contact details.
+            - pandas.DataFrame: Likely-lost and overdue customers ranked
+              by value at risk, with a ``rank`` column starting at 1.
+            - pandas.DataFrame: Slow buyers sorted by ``check_back_by``.
+    """
     contact = customers[["CustomerID", "CompanyName", "ContactName",
                          "ContactTitle", "City", "Country", "Phone"]]
     full = stats.merge(contact, on="CustomerID", how="left",
@@ -114,6 +155,14 @@ def call_list(stats, customers):
 
 
 def style_axes(ax):
+    """Apply the shared grid, tick and spine style to a chart.
+
+    Args:
+        ax (matplotlib.axes.Axes): Axes to style in place.
+
+    Returns:
+        None.
+    """
     ax.grid(color=GRID, linewidth=0.6, zorder=0)
     ax.tick_params(colors=MUTED, labelsize=8.5)
     for side in ["top", "right"]:
@@ -123,6 +172,18 @@ def style_axes(ax):
 
 
 def plot_rhythm(full, calls, out_path):
+    """Draw the days-quiet vs usual-gap scatter and save it.
+
+    Args:
+        full (pandas.DataFrame): All customers from ``call_list``; only
+            regular customers are plotted.
+        calls (pandas.DataFrame): Ranked call list from ``call_list``;
+            its ranks are printed on the dots.
+        out_path (pathlib.Path): Destination PNG, overwritten.
+
+    Returns:
+        None. Writes the chart to ``out_path``.
+    """
     regular = full[full["orders"] >= MIN_ORDERS]
     colors = {"likely lost": RED, "overdue": ORANGE, "active": GRAY}
 
@@ -205,6 +266,15 @@ def plot_rhythm(full, calls, out_path):
 
 
 def plot_call_table(calls, out_path):
+    """Render the call list as a table image and save it.
+
+    Args:
+        calls (pandas.DataFrame): Ranked call list from ``call_list``.
+        out_path (pathlib.Path): Destination PNG, overwritten.
+
+    Returns:
+        None. Writes the table to ``out_path``.
+    """
     header = ["#", "Customer", "Country", "Status", "Revenue,\nlast 12 mo",
               "Usual gap\n(avg days)", "Days\nquiet", "Contact", "Phone"]
     rows = [[str(r["rank"]), r["CompanyName"], r["Country"], r["status"],
@@ -249,6 +319,17 @@ def plot_call_table(calls, out_path):
 
 
 def main():
+    """Run the Q2 analysis and write its CSVs, chart and table.
+
+    Args:
+        None.
+
+    Returns:
+        None. Writes ``results/q2_*`` and prints the call list.
+
+    Raises:
+        ValueError: If order counts or revenue do not reconcile.
+    """
     RESULTS.mkdir(exist_ok=True)
     tables = load_tables()
     lines = build_order_lines(tables)

@@ -40,10 +40,9 @@ Rules Claude follows in this project. They come from the assignment PDF in this 
 - Report findings with their size and caveats (sample size, partial periods, a single dominant customer, etc.). Do not overclaim causation from observational data.
 
 ## 5. Webpage content (graded)
-- **Chosen questions (student's decision, 2026-11-24):**
+- **Chosen questions (student's decision, 2026-11-24): Q3, Q2 and Q1. Q4 (concentration) was dropped by the student.**
   - **Q3** Which countries are growing or shrinking? Compare matching months.
   - **Q2** Which regular customers stopped ordering, and who should sales call first?
-  - **Q4** How dependent are we on a few big customers?
   - **Q1** Do deeper discounts sell more, or are we giving away revenue? This was added back by the student and is done in `src/q1_discounts.py`. Always present it as a **link, not cause and effect**.
 - **At least 3** meaningful business questions, each tied to a decision, opportunity, risk or operational understanding. Avoid "simple lookup" questions such as "Which product has the most orders?".
 - Each question gets, in this order: **the question → why it matters → analytical approach → visualization or table → main finding → business implication**.
@@ -63,7 +62,7 @@ Rules Claude follows in this project. They come from the assignment PDF in this 
 ## 8. Publishing and submission
 - GitHub repo: https://github.com/lcsansano/luciocar-15561-hw3 (public). It contains the code, `README.md`, `CLAUDE.md`, `.claude/skills/`, the dataset and the generated outputs. `.gitignore` keeps out the assignment PDF, the duplicate `SKILL (3).md`, `notes/`, and Python/macOS junk.
 - No git on this Mac (the student declined Command Line Tools for disk space). Upload with `.venv/bin/python tools/upload_to_github.py -m "<message>"`. It uses the logged-in `gh` (`~/.local/bin/gh`), respects `.gitignore`, and commits a full snapshot. Run `--dry-run` first. Never create a new repo. The student completes any GitHub sign-in step themselves.
-- **Upload reminders (updated by the student):** don't ask after every change. Remind only when a milestone is finished. The next one is when all four questions (Q3, Q2, Q1, Q4) are done. Then list everything that changed and offer to upload. Don't upload without their OK. Always remind before anything is called "done" or ready to submit.
+- **Upload reminders (updated by the student):** don't ask after every change. Remind only when a milestone is finished. The next one is when the webpage is built. Then list everything that changed and offer to upload. Don't upload without their OK. Always remind before anything is called "done" or ready to submit.
 - Webpage hosting: default is GitHub Pages from the same repo (`docs/index.html`). Confirm with the student before enabling it or publishing anywhere else.
 - Before calling anything done, open each public URL while logged out (incognito-equivalent) and confirm the page and all its charts load.
 - Ask before any action that publishes or changes something online (creating, uploading, settings changes).

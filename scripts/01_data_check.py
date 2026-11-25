@@ -224,7 +224,7 @@ def check_products(sheets):
 
 
 def check_text(sheets):
-    """Print text oddities: stray whitespace and the Employees photo/notes.
+    """Print text oddities: stray spaces, empty and file-name columns.
 
     Args:
         sheets (dict[str, pandas.DataFrame]): Sheets keyed by name.
@@ -248,7 +248,10 @@ def check_text(sheets):
 
 
 def export_csvs(sheets, out_dir):
-    """Write each sheet to its own UTF-8 CSV, unchanged except dropping empty unnamed columns.
+    """Write each sheet to its own UTF-8 CSV.
+
+    Sheets are written unchanged, except that fully empty "Unnamed"
+    columns are dropped.
 
     Args:
         sheets (dict[str, pandas.DataFrame]): Sheets keyed by name.

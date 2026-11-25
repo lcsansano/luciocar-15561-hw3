@@ -3,22 +3,24 @@
 This measures VOLUME growth, not revenue growth.
 
 Fair comparison:
-  1. Same calendar months: Jul 1996-Apr 1997 ("prior") vs Jul 1997-Apr 1998
-     ("recent"), 10 full months each. Using 10 months instead of only
-     Jan-Apr gives 2.5x more orders per country (less noise from single
-     orders) while still comparing identical months, so seasonality cancels.
-     May-Jun 1997 and the 6 days of May 1998 are left out so neither period
-     gets extra months. A Jan-Apr only check agrees on the shrinking markets.
-  2. Fixed prices: prices rose about 25% in April 1997, so most "prior" lines
-     were sold at old prices and every "recent" line at today's prices.
-     Comparing actual revenue would count the price rise as growth. Every
-     line is therefore valued at one fixed price list (today's list price):
-     Quantity x ListPrice x (1 - Discount). ListPrice is used only as a
-     fixed weight to add up different products, never as revenue. In the
-     recent period this equals actual revenue, because every line was sold
-     at list price.
-  3. Countries with fewer than 10 orders in either period are grouped into
-     "Other countries", because one order can swing their percentage.
+  1. Same calendar months: Jul 1996-Apr 1997 ("prior") vs Jul 1997-Apr
+     1998 ("recent"), 10 full months each. Using 10 months instead of
+     only Jan-Apr gives 2.5x more orders per country (less noise from
+     single orders) while still comparing identical months, so
+     seasonality cancels. May-Jun 1997 and the 6 days of May 1998 are
+     left out so neither period gets extra months. A Jan-Apr only check
+     agrees on the shrinking markets.
+  2. Fixed prices: prices rose about 25% in April 1997, so most "prior"
+     lines were sold at old prices and every "recent" line at today's
+     prices. Comparing actual revenue would count the price rise as
+     growth. Every line is therefore valued at one fixed price list
+     (today's list price): Quantity x ListPrice x (1 - Discount).
+     ListPrice is used only as a fixed weight to add up different
+     products, never as revenue. In the recent period this equals actual
+     revenue, because every line was sold at list price.
+  3. Countries with fewer than 10 orders in either period are grouped
+     into "Other countries", because one order can swing their
+     percentage.
 
 Run from the project root:
     .venv/bin/python -m src.q3_country_growth
@@ -51,6 +53,16 @@ SURFACE = "#fcfcfb"
 
 
 def tag_periods(lines):
+    """Keep lines in the two comparison periods and add volume.
+
+    Args:
+        lines (pandas.DataFrame): Output of ``build_order_lines``.
+
+    Returns:
+        pandas.DataFrame: Lines inside ``PERIODS`` only, with ``Period``
+            ("prior" or "recent") and ``ConstRevenue`` (Quantity x
+            ListPrice x (1 - Discount), the fixed-price volume) added.
+    """
     lines = lines.copy()
     lines["Period"] = pd.NA
     for name, (start, end) in PERIODS.items():
@@ -63,6 +75,17 @@ def tag_periods(lines):
 
 
 def summarise(lines, key):
+    """Total orders, customers, units, revenue and volume per group.
+
+    Args:
+        lines (pandas.DataFrame): Output of ``tag_periods``.
+        key (str): Column to group by, e.g. "CustomerCountry".
+
+    Returns:
+        pandas.DataFrame: One row per ``key`` value with columns
+            ``<metric>_prior`` and ``<metric>_recent`` for orders,
+            customers, units, revenue and volume_usd.
+    """
     stats = (lines.groupby([key, "Period"])
              .agg(orders=("OrderID", "nunique"),
                   customers=("CustomerID", "nunique"),
@@ -75,6 +98,20 @@ def summarise(lines, key):
 
 
 def add_growth(stats, company_growth=None):
+    """Add change and growth columns, plus a trend label if asked.
+
+    Modifies ``stats`` in place and also returns it.
+
+    Args:
+        stats (pandas.DataFrame): Output of ``summarise``.
+        company_growth (float | None): Company volume growth in percent;
+            when given, each row gets a ``trend`` label relative to it.
+
+    Returns:
+        pandas.DataFrame: ``stats`` with ``volume_change_usd`` and
+            volume, revenue and units growth in percent (and
+            ``trend``).
+    """
     stats["volume_change_usd"] = stats["volume_usd_recent"] - stats["volume_usd_prior"]
     stats["volume_growth_pct"] = (stats["volume_usd_recent"]
                                   / stats["volume_usd_prior"] - 1) * 100
@@ -91,6 +128,23 @@ def add_growth(stats, company_growth=None):
 
 
 def country_growth(lines):
+    """Compute volume growth per market, grouping small countries.
+
+    Countries with fewer than ``SMALL_SAMPLE_ORDERS`` orders in either
+    period are combined into ``OTHER``.
+
+    Args:
+        lines (pandas.DataFrame): Output of ``tag_periods``.
+
+    Returns:
+        tuple: Four items:
+            - pandas.DataFrame: Markets (countries plus ``OTHER``),
+              sorted by volume growth, highest first.
+            - pandas.DataFrame: One-row company total.
+            - pandas.DataFrame: Every country ungrouped, with a
+              ``grouped_into_other`` flag.
+            - list[str]: Names of the countries grouped into ``OTHER``.
+    """
     by_country = summarise(lines, "CustomerCountry")
     small = (by_country[["orders_prior", "orders_recent"]].min(axis=1)
              < SMALL_SAMPLE_ORDERS)
@@ -111,6 +165,21 @@ def country_growth(lines):
 
 
 def check_totals(markets, company):
+    """Verify that the markets add up to the company total.
+
+    Args:
+        markets (pandas.DataFrame): Market table from
+            ``country_growth``.
+        company (pandas.DataFrame): Company table from
+            ``country_growth``.
+
+    Returns:
+        None.
+
+    Raises:
+        ValueError: If orders, revenue or volume in either period do not
+            add up within one cent.
+    """
     for col in ["revenue_prior", "revenue_recent", "volume_usd_prior",
                 "volume_usd_recent", "orders_prior", "orders_recent"]:
         if abs(markets[col].sum() - company[col].iloc[0]) > 0.01:
@@ -118,6 +187,16 @@ def check_totals(markets, company):
 
 
 def manager_action(markets):
+    """Write the recommended action shown under the chart.
+
+    Args:
+        markets (pandas.DataFrame): Market table from
+            ``country_growth``; needs at least one "shrinking" market.
+
+    Returns:
+        str: Two-line recommendation naming the two markets with the
+            largest volume gain and the shrinking markets.
+    """
     real = markets.drop(index=OTHER)
     top = real.sort_values("volume_change_usd", ascending=False).head(2)
     share = top["volume_change_usd"].sum() / markets["volume_change_usd"].sum()
@@ -129,6 +208,20 @@ def manager_action(markets):
 
 
 def plot_growth(markets, company, small_names, out_path):
+    """Draw the volume-growth bar chart and save it.
+
+    Args:
+        markets (pandas.DataFrame): Market table from
+            ``country_growth``.
+        company (pandas.DataFrame): Company table from
+            ``country_growth``.
+        small_names (list[str]): Countries grouped into ``OTHER``,
+            listed in the footnote.
+        out_path (pathlib.Path): Destination PNG, overwritten.
+
+    Returns:
+        None. Writes the chart to ``out_path``.
+    """
     company_growth = company["volume_growth_pct"].iloc[0]
     company_rev = company["revenue_growth_pct"].iloc[0]
     data = markets.sort_values("volume_growth_pct")
@@ -201,6 +294,17 @@ def plot_growth(markets, company, small_names, out_path):
 
 
 def main():
+    """Run the Q3 analysis and write its CSVs and chart.
+
+    Args:
+        None.
+
+    Returns:
+        None. Writes ``results/q3_*`` and prints the market table.
+
+    Raises:
+        ValueError: If the market totals do not reconcile.
+    """
     RESULTS.mkdir(exist_ok=True)
     lines = tag_periods(build_order_lines())
     markets, company, detail, small_names = country_growth(lines)

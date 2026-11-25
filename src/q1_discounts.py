@@ -1,8 +1,10 @@
 """Q1: Do deeper discounts sell more, or are we giving away revenue?
 
 This shows a LINK between discount level and order size, not cause and
-effect: discounts are not handed out at random (big customers or big orders
-may get them because they are big). For the cap decision that is enough: if
+effect: discounts are not handed out at random (big customers or big
+orders
+may get them because they are big). For the cap decision that is enough:
+if
 25% lines do not sell much more than 5% lines, the extra 20 points of
 discount do not pay for themselves either way.
 
@@ -11,10 +13,12 @@ Method:
     order 11077's one-off 1-6% discounts (8 lines) are left out.
   - Relative quantity = line quantity / that product's average line
     quantity, so 1.0 means "a typical order size for this product". This
-    compares products with themselves (cheese vs cheese, not cheese vs beer).
-  - 95% interval for each level from 5,000 bootstrap resamples (seed 42).
-  - Break-even: compared with 5%, a deeper discount d keeps revenue flat only
-    if quantity rises by 0.95 / (1 - d). At 25% that is +26.7%.
+    compares products with themselves (cheese vs cheese, not cheese vs
+    beer).
+  - 95% interval for each level from 5,000 bootstrap resamples (seed
+    42).
+  - Break-even: compared with 5%, a deeper discount d keeps revenue flat
+    only if quantity rises by 0.95 / (1 - d). At 25% that is +26.7%.
 
 Run from the project root:
     .venv/bin/python -m src.q1_discounts
@@ -45,6 +49,15 @@ SURFACE = "#fcfcfb"
 
 
 def standard_lines(lines):
+    """Keep standard-discount lines and add relative quantity.
+
+    Args:
+        lines (pandas.DataFrame): Output of ``build_order_lines``.
+
+    Returns:
+        pandas.DataFrame: Lines at ``LEVELS`` only, with ``RelQty`` =
+            quantity / the product's mean quantity across these lines.
+    """
     lines = lines[lines["Discount"].isin(LEVELS)].copy()
     product_mean = lines.groupby("ProductID")["Quantity"].transform("mean")
     lines["RelQty"] = lines["Quantity"] / product_mean
@@ -52,6 +65,17 @@ def standard_lines(lines):
 
 
 def level_table(lines):
+    """Summarise order size and discount cost per discount level.
+
+    Args:
+        lines (pandas.DataFrame): Output of ``standard_lines``.
+
+    Returns:
+        pandas.DataFrame: One row per level with line count, mean units,
+            mean ``RelQty`` and its 95% bootstrap range, discount and
+            revenue in USD, ``breakeven_rel_qty`` (NaN below 5%) and the
+            actual and needed change versus 5% in percent.
+    """
     rng = np.random.default_rng(SEED)
     rows = []
     for level, grp in lines.groupby("Discount"):
@@ -77,7 +101,17 @@ def level_table(lines):
 
 
 def deep_vs_light(lines):
-    """Robustness checks for 25% vs 5% that compare like with like."""
+    """Compare 25% with 5% discount lines in several ways.
+
+    Args:
+        lines (pandas.DataFrame): Output of ``standard_lines``.
+
+    Returns:
+        pandas.Series: Relative-quantity gap in percent with its 95%
+            bootstrap range, break-even gap, per-product median
+            comparison, same-customer ratio, and total discount given
+            overall and above 10% in USD.
+    """
     rng = np.random.default_rng(SEED)
     low = lines.loc[lines["Discount"] == 0.05, "RelQty"].to_numpy()
     high = lines.loc[lines["Discount"] == 0.25, "RelQty"].to_numpy()
@@ -113,6 +147,17 @@ def deep_vs_light(lines):
 
 
 def plot_levels(table, summary, out_path):
+    """Draw order size by discount level against break-even.
+
+    Args:
+        table (pandas.DataFrame): Output of ``level_table``.
+        summary (pandas.Series): Output of ``deep_vs_light``; used in
+            the title and subtitle.
+        out_path (pathlib.Path): Destination PNG, overwritten.
+
+    Returns:
+        None. Writes the chart to ``out_path``.
+    """
     fig, ax = plt.subplots(figsize=(9, 6), dpi=200)
     fig.patch.set_facecolor(SURFACE)
     ax.set_facecolor(SURFACE)
@@ -190,6 +235,17 @@ def plot_levels(table, summary, out_path):
 
 
 def main():
+    """Run the Q1 analysis and write its CSVs and chart.
+
+    Args:
+        None.
+
+    Returns:
+        None. Writes ``results/q1_*`` and prints both tables.
+
+    Raises:
+        ValueError: If the discount totals do not reconcile.
+    """
     RESULTS.mkdir(exist_ok=True)
     all_lines = build_order_lines()
     lines = standard_lines(all_lines)

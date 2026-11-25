@@ -1,6 +1,7 @@
 """Load the Northwind CSVs and build the joined order-line table.
 
-Every analysis script should get its data from here, so the cleaning rules
+Every analysis script should get its data from here, so the cleaning
+rules
 from notes/data_check.md are applied the same way everywhere.
 
 Quick check (from the project root):
@@ -49,6 +50,22 @@ PRODUCT_EXERCISE_COLUMNS = ["Cheap", "NewPrice", "Cheap.1", "IsCheap",
 
 
 def load_tables(data_dir=DATA_DIR):
+    """Read the six CSVs and apply the shared cleaning rules.
+
+    Rounds ``Discount`` to two decimals (removes float noise) and drops
+    the Product exercise columns (``Cheap``, ``NewPrice``, ``IsCheap``).
+
+    Args:
+        data_dir (pathlib.Path): Folder holding the exported CSVs.
+
+    Returns:
+        dict[str, pandas.DataFrame]: Tables keyed by ``orders``,
+            ``order_details``, ``customers``, ``products``,
+            ``categories`` and ``employees``.
+
+    Raises:
+        ValueError: If a CSV's row count differs from ``EXPECTED_ROWS``.
+    """
     names = ["orders", "order_details", "customers", "products",
              "categories", "employees"]
     tables = {}
@@ -73,6 +90,25 @@ def load_tables(data_dir=DATA_DIR):
 
 
 def build_order_lines(tables=None):
+    """Join order lines with orders, customers, products and staff.
+
+    Clashing columns are renamed (``CustomerCountry``,
+    ``EmployeeCountry``; ``Product.Price`` becomes ``ListPrice``). Adds
+    ``GrossRevenue``, ``Revenue`` (UnitPrice x Quantity x
+    (1 - Discount)), ``DiscountAmount``, order year/month/quarter and
+    ``IsShipped``.
+
+    Args:
+        tables (dict[str, pandas.DataFrame] | None): Output of
+            ``load_tables``; loaded from the CSVs when None.
+
+    Returns:
+        pandas.DataFrame: One row per order line (2,155 rows).
+
+    Raises:
+        ValueError: If ``check_order_lines`` finds a broken join or a
+            wrong revenue total.
+    """
     if tables is None:
         tables = load_tables()
 
@@ -129,6 +165,17 @@ def build_order_lines(tables=None):
 
 
 def build_orders(lines=None):
+    """Aggregate order lines to one row per order.
+
+    Args:
+        lines (pandas.DataFrame | None): Output of
+            ``build_order_lines``; built from the CSVs when None.
+
+    Returns:
+        pandas.DataFrame: One row per order (830 rows) with customer,
+            employee and date columns plus ``Lines``, ``Units``,
+            ``GrossRevenue``, ``Revenue`` and ``DiscountAmount``.
+    """
     if lines is None:
         lines = build_order_lines()
     order_cols = [
@@ -150,6 +197,21 @@ def build_orders(lines=None):
 
 
 def check_order_lines(lines, tables):
+    """Verify the joined order lines against known totals.
+
+    Args:
+        lines (pandas.DataFrame): Output of ``build_order_lines``.
+        tables (dict[str, pandas.DataFrame]): Source tables of the
+            lines.
+
+    Returns:
+        None.
+
+    Raises:
+        ValueError: If the join changed the row count, a join left
+            required columns empty, or total revenue differs from
+            ``EXPECTED_REVENUE`` by more than one cent.
+    """
     n_details = len(tables["order_details"])
     if len(lines) != n_details:
         raise ValueError(f"join changed row count: {len(lines)} != {n_details}")
@@ -166,6 +228,14 @@ def check_order_lines(lines, tables):
 
 
 def main():
+    """Build both tables and print a short summary of them.
+
+    Args:
+        None.
+
+    Returns:
+        None. Prints row counts, date range, revenue and columns.
+    """
     tables = load_tables()
     lines = build_order_lines(tables)
     orders = build_orders(lines)
