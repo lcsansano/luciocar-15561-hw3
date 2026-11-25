@@ -1,0 +1,23 @@
+CustomerCountry,orders_prior,orders_recent,customers_prior,customers_recent,units_prior,units_recent,revenue_prior,revenue_recent,const_revenue_prior,const_revenue_recent,const_change_usd,real_growth_pct,nominal_growth_pct,units_growth_pct,trend,small_sample
+All countries,275,479,80,87,17796,28801,399405.85,757909.47,487315.77,757909.47,270593.7,55.53,89.76,61.84,company total,False
+USA,36,74,9,12,2685,5942,71128.08,160296.42,87433.93,160296.42,72862.49,83.33,125.36,121.3,growing faster than company,False
+Germany,39,66,10,11,3112,4895,60472.74,139213.54,71840.32,139213.54,67373.23,93.78,130.21,57.29,growing faster than company,False
+Brazil,26,54,9,9,1419,2576,33109.34,70431.24,41286.77,70431.24,29144.46,70.59,112.72,81.54,growing faster than company,False
+Sweden,10,23,2,2,508,1395,8637.04,36097.66,10802.11,36097.66,25295.55,234.17,317.94,174.61,growing faster than company,False
+Austria,15,22,2,2,1831,2962,45574.71,72480.54,54844.38,72480.54,17636.16,32.16,59.04,61.77,growing slower than company,False
+Ireland,8,10,1,1,780,801,14994.3,32466.6,17638.04,32466.6,14828.56,84.07,116.53,2.69,growing faster than company,True
+UK,19,30,7,7,975,1406,16865.38,33957.27,21003.5,33957.27,12953.76,61.67,101.34,44.21,growing faster than company,False
+Switzerland,5,11,2,2,378,769,8576.52,20794.24,10144.72,20794.24,10649.51,104.98,142.46,103.44,growing faster than company,True
+Spain,7,14,4,4,241,438,3314.4,13830.5,4146.69,13830.5,9683.81,233.53,317.29,81.74,growing faster than company,True
+Venezuela,16,26,4,4,1030,1709,19863.48,33888.23,24348.24,33888.23,9539.98,39.18,70.61,65.92,growing slower than company,False
+Italy,8,19,3,3,261,531,3565.63,11715.82,4462.12,11715.82,7253.71,162.56,228.58,103.45,growing faster than company,True
+Argentina,3,12,3,3,69,268,988.1,7021.0,1179.88,7021.0,5841.12,495.06,610.56,288.41,growing faster than company,True
+Belgium,5,13,1,2,538,810,12416.18,20462.68,15530.75,20462.68,4931.92,31.76,64.81,50.56,growing slower than company,True
+Norway,2,4,1,1,61,100,1258.4,4476.75,1523.6,4476.75,2953.15,193.83,255.75,63.93,growing faster than company,True
+Poland,1,6,1,1,45,160,459.0,3072.95,573.75,3072.95,2499.2,435.59,569.49,255.56,growing faster than company,True
+Portugal,8,5,2,2,310,193,5584.12,5621.94,6984.39,5621.94,-1362.45,-19.51,0.68,-37.74,shrinking,True
+France,28,42,7,10,1390,1519,34016.26,39603.75,41774.25,39603.75,-2170.5,-5.2,16.43,9.28,shrinking,False
+Finland,9,11,2,2,394,337,7687.56,6627.29,9630.7,6627.29,-3003.41,-31.19,-13.79,-14.47,shrinking,True
+Canada,12,16,3,3,890,976,22583.39,24507.75,28200.2,24507.75,-3692.45,-13.09,8.52,9.66,shrinking,False
+Denmark,5,11,2,2,473,659,16658.8,14934.94,20826.75,14934.94,-5891.81,-28.29,-10.35,39.32,shrinking,True
+Mexico,13,10,5,4,406,355,11652.41,6408.36,13140.67,6408.36,-6732.31,-51.23,-45.0,-12.56,shrinking,False

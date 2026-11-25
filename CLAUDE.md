@@ -43,7 +43,7 @@ Rules Claude follows in this project. They come from the assignment PDF in this 
   - **Q3** Which countries are growing or shrinking? Compare matching months.
   - **Q2** Which regular customers stopped ordering, and who should sales call first?
   - **Q4** How dependent are we on a few big customers?
-  - Q1 (discount cap) is checked in `scripts/q1_discount_check.py` and is an optional extra. Details are in `notes/question_candidates.md`.
+  - **Only these three go on the webpage** (student's decision). Q1 (discount cap) stays as a side check in `scripts/q1_discount_check.py` and is not on the page.
 - **At least 3** meaningful business questions, each tied to a decision, opportunity, risk or operational understanding. Avoid "simple lookup" questions such as "Which product has the most orders?".
 - Each question gets, in this order: **the question → why it matters → analytical approach → visualization or table → main finding → business implication**.
 - At least one purposeful visualization per question, unless a table communicates the result better. Pick the chart type for the job (line for time, bar for ranking, scatter for relationships, box/histogram for distributions, heatmap for two dimensions).
@@ -62,7 +62,7 @@ Rules Claude follows in this project. They come from the assignment PDF in this 
 ## 8. Publishing and submission
 - GitHub repo: https://github.com/lcsansano/luciocar-15561-hw3 (public). It contains the code, `README.md`, `CLAUDE.md`, `.claude/skills/`, the dataset and the generated outputs. `.gitignore` keeps out the assignment PDF, the duplicate `SKILL (3).md`, `notes/`, and Python/macOS junk.
 - No git on this Mac (the student declined Command Line Tools for disk space). Upload with `.venv/bin/python tools/upload_to_github.py -m "<message>"`. It uses the logged-in `gh` (`~/.local/bin/gh`), respects `.gitignore`, and commits a full snapshot. Run `--dry-run` first. Never create a new repo. The student completes any GitHub sign-in step themselves.
-- **Upload reminders:** at the end of any turn where files that get uploaded changed (code, README, data, outputs, webpage; i.e. anything not ignored by `.gitignore`), remind the student that GitHub is out of date. List the changed files and offer to upload. Don't upload without their OK. Always remind before anything is called "done" or ready to submit.
+- **Upload reminders (updated by the student):** don't ask after every change. Remind only when a milestone is finished. The next one is when all three questions (Q3, Q2, Q4) are done. Then list everything that changed and offer to upload. Don't upload without their OK. Always remind before anything is called "done" or ready to submit.
 - Webpage hosting: default is GitHub Pages from the same repo (`docs/index.html`). Confirm with the student before enabling it or publishing anywhere else.
 - Before calling anything done, open each public URL while logged out (incognito-equivalent) and confirm the page and all its charts load.
 - Ask before any action that publishes or changes something online (creating, uploading, settings changes).
