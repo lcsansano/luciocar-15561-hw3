@@ -1,90 +1,90 @@
-CustomerID,orders,first_order,last_order,usual_gap_days,days_quiet,value_at_risk_usd,lifetime_sales_usd,quiet_vs_usual,check_back_by,status,CompanyName,ContactName,ContactTitle,City,Country,Phone
-ALFKI,6,1997-08-25,1998-04-09,45.4,27,4273.0,4273.0,0.59,1998-07-08,active,Alfreds Futterkiste,Maria Anders,Sales Representative,Berlin,Germany,030-0074321
-ANATR,4,1996-09-18,1998-03-04,177.33,63,1314.15,1425.15,0.36,1999-02-21,not regular (<5 orders),Ana Trujillo Emparedados y helados,Ana Trujillo,Owner,México D.F.,Mexico,(5) 555-4729
-ANTON,7,1996-11-27,1998-01-28,71.17,98,6620.78,7124.78,1.38,1998-06-19,active,Antonio Moreno Taquería,Antonio Moreno,Owner,México D.F.,Mexico,(5) 555-3932
-AROUT,13,1996-11-15,1998-04-10,42.58,26,11603.95,13837.32,0.61,1998-07-04,active,Around the Horn,Thomas Hardy,Sales Representative,London,UK,(171) 555-7788
-BERGS,18,1996-08-12,1998-03-04,33.47,63,19396.58,26315.18,1.88,1998-05-09,overdue,Berglunds snabbköp,Christina Berglund,Order Administrator,Luleå,Sweden,0921-12 34 65
-BLAUS,7,1997-04-09,1998-04-29,64.17,7,2954.0,3239.8,0.11,1998-09-04,active,Blauer See Delikatessen,Hanna Moos,Sales Representative,Mannheim,Germany,0621-08460
-BLONP,11,1996-07-25,1998-01-12,53.6,114,9507.81,21998.06,2.13,1998-04-29,likely lost,Blondel père et fils,Frédérique Citeaux,Marketing Manager,Strasbourg,France,88.60.15.31
-BOLID,3,1996-10-10,1998-03-24,265.0,43,3250.85,4478.35,0.16,1999-09-05,not regular (<5 orders),Bólido Comidas preparadas,Martín Sommer,Owner,Madrid,Spain,(91) 555 22 82
-BONAP,17,1996-10-16,1998-05-06,35.44,0,12699.77,23440.23,0.0,1998-07-15,active,Bon app',Laurence Lebihan,Owner,Marseille,France,91.24.45.40
-BOTTM,14,1996-12-20,1998-04-24,37.69,12,14456.55,22392.7,0.32,1998-07-08,active,Bottom-Dollar Markets,Elizabeth Lincoln,Accounting Manager,Tsawassen,Canada,(604) 555-4729
-BSBEV,10,1996-08-26,1998-04-14,66.22,22,3896.3,6638.55,0.33,1998-08-24,active,B's Beverages,Victoria Ashworth,Sales Representative,London,UK,(171) 555-1212
-CACTU,6,1997-04-29,1998-04-28,72.8,8,1814.8,1814.8,0.11,1998-09-20,active,Cactus Comidas para llevar,Patricio Simpson,Sales Agent,Buenos Aires,Argentina,(1) 135-5555
-CENTC,1,1996-07-18,1996-07-18,,657,126.0,126.0,,,not regular (<5 orders),Centro comercial Moctezuma,Francisco Chang,Marketing Manager,México D.F.,Mexico,(5) 555-3392
-CHOPS,8,1996-07-11,1998-04-22,92.86,14,10674.66,12767.44,0.15,1998-10-24,too early to tell (slow buyer),Chop-suey Chinese,Yang Wang,Owner,Bern,Switzerland,0452-076545
-COMMI,5,1996-08-27,1998-04-22,150.75,14,513.75,4637.6,0.09,1999-02-17,too early to tell (slow buyer),Comércio Mineiro,Pedro Afonso,Sales Associate,São Paulo,Brazil,(11) 555-7647
-CONSH,3,1997-02-04,1998-01-23,176.5,103,1916.5,1916.5,0.58,1999-01-11,not regular (<5 orders),Consolidated Holdings,Elizabeth Brown,Sales Representative,London,UK,(171) 555-2282
-DRACD,6,1996-11-26,1998-05-04,104.8,2,3229.61,3896.61,0.02,1998-11-29,too early to tell (slow buyer),Drachenblut Delikatessen,Sven Ottlieb,Order Administrator,Aachen,Germany,0241-039123
-DUMON,4,1996-09-20,1998-02-16,171.33,79,1347.1,1683.1,0.46,1999-01-24,not regular (<5 orders),Du monde entier,Janine Labrune,Owner,Nantes,France,40.67.88.88
-EASTC,8,1996-11-26,1998-04-28,74.0,8,10748.04,15765.12,0.11,1998-09-23,active,Eastern Connection,Ann Devon,Sales Agent,London,UK,(171) 555-0297
-ERNSH,30,1996-07-17,1998-05-05,22.66,1,70423.75,111362.43,0.04,1998-06-19,active,Ernst Handel,Roland Mendel,Sales Manager,Graz,Austria,7675-3425
-FAMIA,7,1996-11-06,1997-10-31,59.83,187,4410.24,4410.24,3.13,1998-02-27,likely lost,Familia Arquibaldo,Aria Cruz,Marketing Assistant,São Paulo,Brazil,(11) 555-9857
-FOLIG,5,1997-01-08,1997-12-22,87.0,135,12263.7,12263.7,1.55,1998-06-14,overdue,Folies gourmandes,Martine Rancé,Assistant Sales Agent,Lille,France,20.16.10.16
-FOLKO,19,1996-07-24,1998-04-27,35.67,9,26461.52,30345.02,0.25,1998-07-07,active,Folk och fä HB,Maria Larsson,Owner,Bräcke,Sweden,0695-34 67 21
-FRANK,15,1996-07-29,1998-04-09,44.21,27,15396.52,29477.64,0.61,1998-07-06,active,Frankenversand,Peter Franken,Marketing Manager,München,Germany,089-0877310
-FRANR,3,1997-09-17,1998-03-24,94.0,43,3172.16,3172.16,0.46,1998-09-28,not regular (<5 orders),France restauration,Carine Schmitt,Marketing Manager,Nantes,France,40.32.21.21
-FRANS,6,1997-01-22,1998-04-30,92.6,6,1495.9,1558.36,0.06,1998-11-01,too early to tell (slow buyer),Franchi S.p.A.,Paolo Accorti,Sales Representative,Torino,Italy,011-4988260
-FURIB,8,1996-10-14,1998-03-19,74.43,48,3579.68,7224.92,0.64,1998-08-14,active,Furia Bacalhau e Frutos do Mar,Lino Rodriguez,Sales Manager,Lisboa,Portugal,(1) 354-2534
-GALED,5,1996-11-28,1998-03-05,115.5,62,362.5,955.5,0.54,1998-10-22,too early to tell (slow buyer),Galería del gastrónomo,Eduardo Saavedra,Marketing Manager,Barcelona,Spain,(93) 203 4560
-GODOS,10,1996-09-11,1998-04-21,65.22,15,10328.56,11728.06,0.23,1998-08-29,active,Godos Cocina Típica,José Pedro Freyre,Sales Manager,Sevilla,Spain,(95) 555 82 82
-GOURL,9,1997-01-23,1998-04-24,57.0,12,7394.14,8669.14,0.21,1998-08-16,active,Gourmet Lanchonetes,André Fonseca,Sales Associate,Campinas,Brazil,(11) 555-9482
-GREAL,11,1997-05-06,1998-04-30,35.9,6,18507.45,18507.45,0.17,1998-07-10,active,Great Lakes Food Market,Howard Snyder,Marketing Manager,Eugene,USA,(503) 555-7555
-GROSR,2,1996-07-30,1997-12-18,506.0,139,387.5,1764.6,0.27,2000-09-25,not regular (<5 orders),GROSELLA-Restaurante,Manuel Pereira,Owner,Caracas,Venezuela,(2) 283-2951
-HANAR,14,1996-07-08,1998-04-27,50.62,9,29843.97,33591.61,0.18,1998-08-06,active,Hanari Carnes,Mario Pontes,Accounting Manager,Rio de Janeiro,Brazil,(21) 555-0091
-HILAA,18,1996-07-16,1998-04-28,38.29,8,14335.26,24737.16,0.21,1998-07-13,active,HILARIÓN-Abastos,Carlos Hernández,Sales Representative,San Cristóbal,Venezuela,(5) 555-1340
-HUNGC,5,1996-12-06,1997-09-08,69.0,240,3285.05,3285.05,3.48,1998-01-24,likely lost,Hungry Coyote Import Store,Yoshi Latimer,Sales Representative,Elgin,USA,(503) 555-6874
-HUNGO,19,1996-09-05,1998-04-30,33.44,6,34985.6,52623.64,0.18,1998-07-05,active,Hungry Owl All-Night Grocers,Patricia McKenna,Sales Associate,Cork,Ireland,2967 542
-ISLAT,10,1996-09-26,1998-03-06,58.44,61,5302.7,6429.7,1.04,1998-06-30,active,Island Trading,Helen Bennett,Marketing Manager,Cowes,UK,(198) 555-8888
-KOENE,14,1996-10-07,1998-04-16,42.77,20,25971.98,32040.65,0.47,1998-07-10,active,Königlich Essen,Philip Cramer,Sales Associate,Brandenburg,Germany,0555-09876
-LACOR,4,1998-01-29,1998-03-24,18.0,43,1992.05,1992.05,2.39,1998-04-29,not regular (<5 orders),La corne d'abondance,Daniel Tonini,Sales Representative,Versailles,France,30.59.84.10
-LAMAI,14,1996-11-11,1998-04-27,40.92,9,4237.72,10473.88,0.22,1998-07-17,active,La maison d'Asie,Annette Roulet,Sales Manager,Toulouse,France,61.77.61.10
-LAUGB,3,1997-04-03,1998-01-01,136.5,125,592.5,592.5,0.92,1998-10-01,not regular (<5 orders),Laughing Bacchus Wine Cellars,Yoshi Tannamuri,Marketing Assistant,Vancouver,Canada,(604) 555-3392
-LAZYK,2,1997-03-21,1997-05-22,62.0,349,394.0,394.0,5.63,1997-09-23,not regular (<5 orders),Lazy K Kountry Store,John Steel,Marketing Manager,Walla Walla,USA,(509) 555-7969
-LEHMS,15,1996-08-13,1998-05-05,45.0,1,12457.2,20386.01,0.02,1998-08-03,active,Lehmanns Marktstand,Renate Messner,Sales Representative,Frankfurt a.M.,Germany,069-0245984
-LETSS,4,1997-06-25,1998-02-12,77.33,83,3076.47,3076.47,1.07,1998-07-16,not regular (<5 orders),Let's Stop N Shop,Jaime Yorres,Owner,San Francisco,USA,(415) 555-5938
-LILAS,14,1996-08-16,1998-05-05,48.23,1,7731.82,17821.06,0.02,1998-08-09,active,LILA-Supermercado,Carlos González,Accounting Manager,Barquisimeto,Venezuela,(9) 331-6954
-LINOD,12,1997-01-06,1998-04-21,42.73,15,14492.56,16972.56,0.35,1998-07-15,active,LINO-Delicateses,Felipe Izquierdo,Owner,I. de Margarita,Venezuela,(8) 34-56-12
-LONEP,8,1996-09-17,1998-04-13,81.86,23,3546.6,4437.1,0.28,1998-09-23,active,Lonesome Pine Restaurant,Fran Wilson,Sales Manager,Portland,USA,(503) 555-9573
-MAGAA,10,1996-08-07,1998-03-16,65.11,51,4449.92,7860.78,0.78,1998-07-24,active,Magazzini Alimentari Riuniti,Giovanni Rovelli,Marketing Manager,Bergamo,Italy,035-640230
-MAISD,7,1997-05-07,1998-04-07,55.83,29,9736.07,9736.07,0.52,1998-07-27,active,Maison Dewey,Catherine Dewey,Sales Agent,Bruxelles,Belgium,(02) 201 24 67
-MEREP,13,1996-10-17,1997-10-30,31.5,188,26400.4,32827.9,5.97,1998-01-01,likely lost,Mère Paillarde,Jean Fresnière,Marketing Assistant,Montréal,Canada,(514) 555-8054
-MORGK,5,1996-08-09,1998-03-12,145.0,55,3841.4,5345.0,0.38,1998-12-27,too early to tell (slow buyer),Morgenstern Gesundkost,Alexander Feuer,Marketing Assistant,Leipzig,Germany,0342-023176
-NORTS,3,1997-04-24,1998-04-29,185.0,7,297.0,649.0,0.04,1999-05-04,not regular (<5 orders),North/South,Simon Crowther,Sales Associate,London,UK,(171) 555-7733
-OCEAN,5,1997-01-09,1998-03-30,111.25,37,3141.0,3540.0,0.33,1998-11-07,too early to tell (slow buyer),Océano Atlántico Ltda.,Yvonne Moncada,Sales Agent,Buenos Aires,Argentina,(1) 135-5333
-OLDWO,10,1996-07-19,1998-04-20,71.11,16,7335.66,17258.21,0.22,1998-09-09,active,Old World Delicatessen,Rene Phillips,Sales Representative,Anchorage,USA,(907) 555-7584
-OTTIK,9,1997-01-07,1998-04-14,57.75,22,9797.55,11290.05,0.38,1998-08-07,active,Ottilies Käseladen,Henriette Pfalzheim,Owner,Köln,Germany,0221-0644327
-PERIC,6,1996-10-04,1998-05-05,115.6,1,1496.0,4727.16,0.01,1998-12-22,too early to tell (slow buyer),Pericles Comidas clásicas,Guillermo Fernández,Sales Representative,México D.F.,Mexico,(5) 552-3745
-PICCO,10,1996-11-13,1998-04-27,58.89,9,12005.38,25911.08,0.15,1998-08-22,active,Piccolo und mehr,Georg Pipps,Sales Manager,Salzburg,Austria,6562-9722
-PRINI,6,1996-10-23,1998-04-08,106.4,28,4044.9,7058.7,0.26,1998-11-06,too early to tell (slow buyer),Princesa Isabel Vinhos,Isabel de Castro,Sales Representative,Lisboa,Portugal,(1) 356-5634
-QUEDE,9,1996-07-19,1998-03-31,77.5,36,3661.74,7422.68,0.46,1998-09-02,active,Que Delícia,Bernardo Batista,Accounting Manager,Rio de Janeiro,Brazil,(21) 555-4252
-QUEEN,13,1996-12-04,1998-05-04,43.0,2,13786.12,28710.62,0.05,1998-07-29,active,Queen Cozinha,Lúcia Carvalho,Marketing Assistant,São Paulo,Brazil,(11) 555-1189
-QUICK,28,1996-08-05,1998-04-14,22.85,22,92662.76,114693.86,0.96,1998-05-29,active,QUICK-Stop,Horst Kloss,Accounting Manager,Cunewalde,Germany,0372-035188
-RANCH,5,1997-02-17,1998-04-13,105.0,23,2400.7,2956.08,0.22,1998-11-09,too early to tell (slow buyer),Rancho grande,Sergio Gutiérrez,Sales Representative,Buenos Aires,Argentina,(1) 123-5555
-RATTC,18,1996-07-22,1998-05-06,38.41,0,26257.82,57317.5,0.0,1998-07-21,active,Rattlesnake Canyon Grocery,Paula Wilson,Assistant Sales Representative,Albuquerque,USA,(505) 555-5939
-REGGC,12,1996-08-23,1998-04-30,55.91,6,6258.7,7247.5,0.11,1998-08-19,active,Reggiani Caseifici,Maurizio Moroni,Sales Associate,Reggio Emilia,Italy,0522-556721
-RICAR,11,1996-08-22,1998-04-29,61.5,7,8895.9,13347.95,0.11,1998-08-30,active,Ricardo Adocicados,Janete Limeira,Assistant Sales Agent,Rio de Janeiro,Brazil,(21) 555-3412
-RICSU,10,1996-07-12,1998-05-06,73.67,0,14755.68,20493.43,0.0,1998-09-30,active,Richter Supermarkt,Michael Holz,Sales Manager,Genève,Switzerland,0897-034214
-ROMEY,5,1996-08-14,1998-04-09,150.75,27,726.89,1653.58,0.18,1999-02-04,too early to tell (slow buyer),Romero y tomillo,Alejandra Camino,Accounting Manager,Madrid,Spain,(91) 745 6200
-SANTG,6,1996-12-18,1998-04-10,95.6,26,4676.75,6000.35,0.27,1998-10-18,too early to tell (slow buyer),Santé Gourmet,Jonas Bergulfsen,Owner,Stavern,Norway,07-98 92 35
-SAVEA,31,1996-10-08,1998-05-01,19.0,5,82373.51,108703.29,0.26,1998-06-08,active,Save-a-lot Markets,Jose Pavarotti,Sales Representative,Boise,USA,(208) 555-8097
-SEVES,9,1996-11-21,1998-02-04,55.0,91,10910.44,17873.24,1.65,1998-05-25,overdue,Seven Seas Imports,Hari Kumar,Sales Manager,London,UK,(171) 555-1717
-SIMOB,7,1996-10-29,1998-05-06,92.33,0,5276.1,19702.35,0.0,1998-11-06,too early to tell (slow buyer),Simons bistro,Jytte Petersen,Owner,København,Denmark,31 12 34 56
-SPECD,4,1997-11-12,1998-04-22,53.67,14,2423.35,2423.35,0.26,1998-08-07,not regular (<5 orders),Spécialités du monde,Dominique Perrier,Marketing Manager,Paris,France,(1) 47.55.60.10
-SPLIR,9,1996-08-01,1998-03-25,75.12,42,3107.0,13532.76,0.56,1998-08-22,active,Split Rail Beer & Ale,Art Braunschweiger,Sales Manager,Lander,USA,(307) 555-4680
-SUPRD,12,1996-07-09,1998-04-21,59.18,15,11672.6,27203.35,0.25,1998-08-17,active,Suprêmes délices,Pascale Cartrain,Accounting Manager,Charleroi,Belgium,(071) 23 67 22 20
-THEBI,4,1996-09-20,1998-04-01,186.0,35,3025.0,3446.0,0.19,1999-04-08,not regular (<5 orders),The Big Cheese,Liz Nixon,Marketing Manager,Portland,USA,(503) 555-3612
-THECR,3,1997-08-07,1998-04-06,121.0,30,1947.24,1947.24,0.25,1998-12-04,not regular (<5 orders),The Cracker Box,Liu Wong,Marketing Assistant,Butte,USA,(406) 555-5834
-TOMSP,5,1997-02-06,1998-03-23,102.5,44,2214.5,3091.51,0.43,1998-10-14,too early to tell (slow buyer),Toms Spezialitäten,Karin Josephs,Marketing Manager,Münster,Germany,0251-031259
-TORTU,10,1996-08-08,1998-05-04,70.44,2,3247.8,11667.25,0.03,1998-09-21,active,Tortuga Restaurante,Miguel Angel Paolino,Owner,México D.F.,Mexico,(5) 555-2933
-TRADH,7,1996-07-05,1998-01-19,93.83,107,5602.16,9551.41,1.14,1998-07-25,too early to tell (slow buyer),Tradição Hipermercados,Anabela Domingues,Sales Representative,São Paulo,Brazil,(11) 555-2167
-TRAIH,3,1997-06-19,1998-01-08,101.5,118,1571.2,1571.2,1.16,1998-07-30,not regular (<5 orders),Trail's Head Gourmet Provisioners,Helvetius Nagy,Sales Associate,Kirkland,USA,(206) 555-8257
-VAFFE,11,1996-11-28,1998-04-02,49.0,34,10726.12,17126.62,0.69,1998-07-09,active,Vaffeljernet,Palle Ibsen,Sales Manager,Århus,Denmark,86 21 32 43
-VICTE,10,1996-07-08,1998-01-23,62.67,103,9024.81,10024.38,1.64,1998-05-28,overdue,Victuailles en stock,Mary Saveley,Sales Agent,Lyon,France,78.32.54.86
-VINET,4,1996-08-06,1997-11-12,154.33,175,379.8,1205.4,1.13,1998-09-16,not regular (<5 orders),Vins et alcools Chevalier,Paul Henriot,Accounting Manager,Reims,France,26.47.15.10
-WANDK,10,1996-09-09,1998-04-23,65.67,13,3806.62,10550.02,0.2,1998-09-01,active,Die Wandernde Kuh,Rita Müller,Sales Representative,Stuttgart,Germany,0711-020361
-WARTH,15,1996-07-26,1998-04-15,44.86,21,8401.14,17465.84,0.47,1998-07-13,active,Wartian Herkku,Pirkko Koskitalo,Accounting Manager,Oulu,Finland,981-443655
-WELLI,9,1996-07-15,1998-03-09,75.25,58,3842.56,6625.36,0.77,1998-08-06,active,Wellington Importadora,Paula Parente,Sales Manager,Resende,Brazil,(14) 555-8122
-WHITC,14,1996-07-31,1998-05-01,49.15,5,21411.43,28507.83,0.1,1998-08-07,active,White Clover Markets,Karl Jablonski,Owner,Seattle,USA,(206) 555-4112
-WILMK,8,1996-07-04,1998-04-07,91.71,29,3161.35,3727.35,0.32,1998-10-07,too early to tell (slow buyer),Wilman Kala,Matti Karttunen,Owner/Marketing Assistant,Helsinki,Finland,90-224 8858
-WOLZA,7,1996-12-05,1998-04-23,84.0,13,3072.95,3646.7,0.15,1998-10-08,active,Wolski  Zajazd,Zbyszek Piestrzeniewicz,Owner,Warszawa,Poland,(26) 642-7012
+CustomerID,orders,first_order,last_order,usual_gap_days,median_gap_days,days_quiet,value_at_risk_usd,lifetime_revenue_usd,quiet_vs_usual,check_back_by,status,CompanyName,ContactName,ContactTitle,City,Country,Phone
+ALFKI,6,1997-08-25,1998-04-09,45.4,39.0,27,4273.0,4273.0,0.59,1998-07-08,active,Alfreds Futterkiste,Maria Anders,Sales Representative,Berlin,Germany,030-0074321
+ANATR,4,1996-09-18,1998-03-04,177.33,112.0,63,1314.15,1402.95,0.36,1999-02-21,not regular (<5 orders),Ana Trujillo Emparedados y helados,Ana Trujillo,Owner,México D.F.,Mexico,(5) 555-4729
+ANTON,7,1996-11-27,1998-01-28,71.17,66.0,98,6620.78,7023.98,1.38,1998-06-19,active,Antonio Moreno Taquería,Antonio Moreno,Owner,México D.F.,Mexico,(5) 555-3932
+AROUT,13,1996-11-15,1998-04-10,42.58,29.0,26,11603.95,13390.65,0.61,1998-07-04,active,Around the Horn,Thomas Hardy,Sales Representative,London,UK,(171) 555-7788
+BERGS,18,1996-08-12,1998-03-04,33.47,26.0,63,19396.58,24927.58,1.88,1998-05-09,overdue,Berglunds snabbköp,Christina Berglund,Order Administrator,Luleå,Sweden,0921-12 34 65
+BLAUS,7,1997-04-09,1998-04-29,64.17,46.0,7,2954.0,3239.8,0.11,1998-09-04,active,Blauer See Delikatessen,Hanna Moos,Sales Representative,Mannheim,Germany,0621-08460
+BLONP,11,1996-07-25,1998-01-12,53.6,42.5,114,8547.88,18534.08,2.13,1998-04-29,likely lost,Blondel père et fils,Frédérique Citeaux,Marketing Manager,Strasbourg,France,88.60.15.31
+BOLID,3,1996-10-10,1998-03-24,265.0,265.0,43,3250.85,4232.85,0.16,1999-09-05,not regular (<5 orders),Bólido Comidas preparadas,Martín Sommer,Owner,Madrid,Spain,(91) 555 22 82
+BONAP,17,1996-10-16,1998-05-06,35.44,24.5,0,12699.77,21963.25,0.0,1998-07-15,active,Bon app',Laurence Lebihan,Owner,Marseille,France,91.24.45.40
+BOTTM,14,1996-12-20,1998-04-24,37.69,12.0,12,14456.55,20801.6,0.32,1998-07-08,active,Bottom-Dollar Markets,Elizabeth Lincoln,Accounting Manager,Tsawassen,Canada,(604) 555-4729
+BSBEV,10,1996-08-26,1998-04-14,66.22,32.0,22,3896.3,6089.9,0.33,1998-08-24,active,B's Beverages,Victoria Ashworth,Sales Representative,London,UK,(171) 555-1212
+CACTU,6,1997-04-29,1998-04-28,72.8,35.0,8,1814.8,1814.8,0.11,1998-09-20,active,Cactus Comidas para llevar,Patricio Simpson,Sales Agent,Buenos Aires,Argentina,(1) 135-5555
+CENTC,1,1996-07-18,1996-07-18,,,657,100.8,100.8,,,not regular (<5 orders),Centro comercial Moctezuma,Francisco Chang,Marketing Manager,México D.F.,Mexico,(5) 555-3392
+CHOPS,8,1996-07-11,1998-04-22,92.86,121.0,14,10674.66,12348.88,0.15,1998-10-24,too early to tell (slow buyer),Chop-suey Chinese,Yang Wang,Owner,Bern,Switzerland,0452-076545
+COMMI,5,1996-08-27,1998-04-22,150.75,110.5,14,513.75,3810.75,0.09,1999-02-17,too early to tell (slow buyer),Comércio Mineiro,Pedro Afonso,Sales Associate,São Paulo,Brazil,(11) 555-7647
+CONSH,3,1997-02-04,1998-01-23,176.5,176.5,103,1719.1,1719.1,0.58,1999-01-11,not regular (<5 orders),Consolidated Holdings,Elizabeth Brown,Sales Representative,London,UK,(171) 555-2282
+DRACD,6,1996-11-26,1998-05-04,104.8,27.0,2,3229.61,3763.21,0.02,1998-11-29,too early to tell (slow buyer),Drachenblut Delikatessen,Sven Ottlieb,Order Administrator,Aachen,Germany,0241-039123
+DUMON,4,1996-09-20,1998-02-16,171.33,143.0,79,1347.1,1615.9,0.46,1999-01-24,not regular (<5 orders),Du monde entier,Janine Labrune,Owner,Nantes,France,40.67.88.88
+EASTC,8,1996-11-26,1998-04-28,74.0,36.0,8,10748.04,14761.04,0.11,1998-09-23,active,Eastern Connection,Ann Devon,Sales Agent,London,UK,(171) 555-0297
+ERNSH,30,1996-07-17,1998-05-05,22.66,14.0,1,70423.75,104874.98,0.04,1998-06-19,active,Ernst Handel,Roland Mendel,Sales Manager,Graz,Austria,7675-3425
+FAMIA,7,1996-11-06,1997-10-31,59.83,63.5,187,4107.55,4107.55,3.13,1998-02-27,likely lost,Familia Arquibaldo,Aria Cruz,Marketing Assistant,São Paulo,Brazil,(11) 555-9857
+FOLIG,5,1997-01-08,1997-12-22,87.0,90.5,135,11666.9,11666.9,1.55,1998-06-14,overdue,Folies gourmandes,Martine Rancé,Assistant Sales Agent,Lille,France,20.16.10.16
+FOLKO,19,1996-07-24,1998-04-27,35.67,25.0,9,26461.52,29567.56,0.25,1998-07-07,active,Folk och fä HB,Maria Larsson,Owner,Bräcke,Sweden,0695-34 67 21
+FRANK,15,1996-07-29,1998-04-09,44.21,36.0,27,15396.52,26656.56,0.61,1998-07-06,active,Frankenversand,Peter Franken,Marketing Manager,München,Germany,089-0877310
+FRANR,3,1997-09-17,1998-03-24,94.0,94.0,43,3172.16,3172.16,0.46,1998-09-28,not regular (<5 orders),France restauration,Carine Schmitt,Marketing Manager,Nantes,France,40.32.21.21
+FRANS,6,1997-01-22,1998-04-30,92.6,36.0,6,1495.9,1545.7,0.06,1998-11-01,too early to tell (slow buyer),Franchi S.p.A.,Paolo Accorti,Sales Representative,Torino,Italy,011-4988260
+FURIB,8,1996-10-14,1998-03-19,74.43,54.0,48,3513.84,6427.42,0.64,1998-08-14,active,Furia Bacalhau e Frutos do Mar,Lino Rodriguez,Sales Manager,Lisboa,Portugal,(1) 354-2534
+GALED,5,1996-11-28,1998-03-05,115.5,98.5,62,362.5,836.7,0.54,1998-10-22,too early to tell (slow buyer),Galería del gastrónomo,Eduardo Saavedra,Marketing Manager,Barcelona,Spain,(93) 203 4560
+GODOS,10,1996-09-11,1998-04-21,65.22,15.0,15,10328.56,11446.36,0.23,1998-08-29,active,Godos Cocina Típica,José Pedro Freyre,Sales Manager,Sevilla,Spain,(95) 555 82 82
+GOURL,9,1997-01-23,1998-04-24,57.0,32.5,12,7394.14,8414.14,0.21,1998-08-16,active,Gourmet Lanchonetes,André Fonseca,Sales Associate,Campinas,Brazil,(11) 555-9482
+GREAL,11,1997-05-06,1998-04-30,35.9,28.0,6,18507.45,18507.45,0.17,1998-07-10,active,Great Lakes Food Market,Howard Snyder,Marketing Manager,Eugene,USA,(503) 555-7555
+GROSR,2,1996-07-30,1997-12-18,506.0,506.0,139,387.5,1488.7,0.27,2000-09-25,not regular (<5 orders),GROSELLA-Restaurante,Manuel Pereira,Owner,Caracas,Venezuela,(2) 283-2951
+HANAR,14,1996-07-08,1998-04-27,50.62,18.0,9,29843.97,32841.37,0.18,1998-08-06,active,Hanari Carnes,Mario Pontes,Accounting Manager,Rio de Janeiro,Brazil,(21) 555-0091
+HILAA,18,1996-07-16,1998-04-28,38.29,24.0,8,14335.26,22768.76,0.21,1998-07-13,active,HILARIÓN-Abastos,Carlos Hernández,Sales Representative,San Cristóbal,Venezuela,(5) 555-1340
+HUNGC,5,1996-12-06,1997-09-08,69.0,37.5,240,3063.2,3063.2,3.48,1998-01-24,likely lost,Hungry Coyote Import Store,Yoshi Latimer,Sales Representative,Elgin,USA,(503) 555-6874
+HUNGO,19,1996-09-05,1998-04-30,33.44,26.0,6,34985.6,49979.9,0.18,1998-07-05,active,Hungry Owl All-Night Grocers,Patricia McKenna,Sales Associate,Cork,Ireland,2967 542
+ISLAT,10,1996-09-26,1998-03-06,58.44,44.0,61,5245.1,6146.3,1.04,1998-06-30,active,Island Trading,Helen Bennett,Marketing Manager,Cowes,UK,(198) 555-8888
+KOENE,14,1996-10-07,1998-04-16,42.77,35.0,20,25971.98,30908.38,0.47,1998-07-10,active,Königlich Essen,Philip Cramer,Sales Associate,Brandenburg,Germany,0555-09876
+LACOR,4,1998-01-29,1998-03-24,18.0,19.0,43,1992.05,1992.05,2.39,1998-04-29,not regular (<5 orders),La corne d'abondance,Daniel Tonini,Sales Representative,Versailles,France,30.59.84.10
+LAMAI,14,1996-11-11,1998-04-27,40.92,28.0,9,4237.72,9328.2,0.22,1998-07-17,active,La maison d'Asie,Annette Roulet,Sales Manager,Toulouse,France,61.77.61.10
+LAUGB,3,1997-04-03,1998-01-01,136.5,136.5,125,522.5,522.5,0.92,1998-10-01,not regular (<5 orders),Laughing Bacchus Wine Cellars,Yoshi Tannamuri,Marketing Assistant,Vancouver,Canada,(604) 555-3392
+LAZYK,2,1997-03-21,1997-05-22,62.0,62.0,349,357.0,357.0,5.63,1997-09-23,not regular (<5 orders),Lazy K Kountry Store,John Steel,Marketing Manager,Walla Walla,USA,(509) 555-7969
+LEHMS,15,1996-08-13,1998-05-05,45.0,23.0,1,12457.2,19261.41,0.02,1998-08-03,active,Lehmanns Marktstand,Renate Messner,Sales Representative,Frankfurt a.M.,Germany,069-0245984
+LETSS,4,1997-06-25,1998-02-12,77.33,94.0,83,3076.47,3076.47,1.07,1998-07-16,not regular (<5 orders),Let's Stop N Shop,Jaime Yorres,Owner,San Francisco,USA,(415) 555-5938
+LILAS,14,1996-08-16,1998-05-05,48.23,39.0,1,7731.82,16076.6,0.02,1998-08-09,active,LILA-Supermercado,Carlos González,Accounting Manager,Barquisimeto,Venezuela,(9) 331-6954
+LINOD,12,1997-01-06,1998-04-21,42.73,27.0,15,14492.56,16476.56,0.35,1998-07-15,active,LINO-Delicateses,Felipe Izquierdo,Owner,I. de Margarita,Venezuela,(8) 34-56-12
+LONEP,8,1996-09-17,1998-04-13,81.86,60.0,23,3546.6,4258.6,0.28,1998-09-23,active,Lonesome Pine Restaurant,Fran Wilson,Sales Manager,Portland,USA,(503) 555-9573
+MAGAA,10,1996-08-07,1998-03-16,65.11,62.0,51,4449.92,7176.22,0.78,1998-07-24,active,Magazzini Alimentari Riuniti,Giovanni Rovelli,Marketing Manager,Bergamo,Italy,035-640230
+MAISD,7,1997-05-07,1998-04-07,55.83,56.5,29,9736.07,9736.07,0.52,1998-07-27,active,Maison Dewey,Catherine Dewey,Sales Agent,Bruxelles,Belgium,(02) 201 24 67
+MEREP,13,1996-10-17,1997-10-30,31.5,17.5,188,23731.31,28872.19,5.97,1998-01-01,likely lost,Mère Paillarde,Jean Fresnière,Marketing Assistant,Montréal,Canada,(514) 555-8054
+MORGK,5,1996-08-09,1998-03-12,145.0,98.5,55,3841.4,5042.2,0.38,1998-12-27,too early to tell (slow buyer),Morgenstern Gesundkost,Alexander Feuer,Marketing Assistant,Leipzig,Germany,0342-023176
+NORTS,3,1997-04-24,1998-04-29,185.0,185.0,7,297.0,649.0,0.04,1999-05-04,not regular (<5 orders),North/South,Simon Crowther,Sales Associate,London,UK,(171) 555-7733
+OCEAN,5,1997-01-09,1998-03-30,111.25,72.5,37,3141.0,3460.2,0.33,1998-11-07,too early to tell (slow buyer),Océano Atlántico Ltda.,Yvonne Moncada,Sales Agent,Buenos Aires,Argentina,(1) 135-5333
+OLDWO,10,1996-07-19,1998-04-20,71.11,56.0,16,7335.66,15271.11,0.22,1998-09-09,active,Old World Delicatessen,Rene Phillips,Sales Representative,Anchorage,USA,(907) 555-7584
+OTTIK,9,1997-01-07,1998-04-14,57.75,57.0,22,9797.55,10991.55,0.38,1998-08-07,active,Ottilies Käseladen,Henriette Pfalzheim,Owner,Köln,Germany,0221-0644327
+PERIC,6,1996-10-04,1998-05-05,115.6,41.0,1,1496.0,4242.2,0.01,1998-12-22,too early to tell (slow buyer),Pericles Comidas clásicas,Guillermo Fernández,Sales Representative,México D.F.,Mexico,(5) 552-3745
+PICCO,10,1996-11-13,1998-04-27,58.89,60.0,9,12005.38,23128.86,0.15,1998-08-22,active,Piccolo und mehr,Georg Pipps,Sales Manager,Salzburg,Austria,6562-9722
+PRINI,6,1996-10-23,1998-04-08,106.4,65.0,28,4044.9,6455.94,0.26,1998-11-06,too early to tell (slow buyer),Princesa Isabel Vinhos,Isabel de Castro,Sales Representative,Lisboa,Portugal,(1) 356-5634
+QUEDE,9,1996-07-19,1998-03-31,77.5,59.5,36,3661.74,6664.81,0.46,1998-09-02,active,Que Delícia,Bernardo Batista,Accounting Manager,Rio de Janeiro,Brazil,(21) 555-4252
+QUEEN,13,1996-12-04,1998-05-04,43.0,36.5,2,13786.12,25717.5,0.05,1998-07-29,active,Queen Cozinha,Lúcia Carvalho,Marketing Assistant,São Paulo,Brazil,(11) 555-1189
+QUICK,28,1996-08-05,1998-04-14,22.85,18.0,22,92662.76,110277.3,0.96,1998-05-29,active,QUICK-Stop,Horst Kloss,Accounting Manager,Cunewalde,Germany,0372-035188
+RANCH,5,1997-02-17,1998-04-13,105.0,63.0,23,2400.7,2844.1,0.22,1998-11-09,too early to tell (slow buyer),Rancho grande,Sergio Gutiérrez,Sales Representative,Buenos Aires,Argentina,(1) 123-5555
+RATTC,18,1996-07-22,1998-05-06,38.41,28.0,0,26257.82,51097.8,0.0,1998-07-21,active,Rattlesnake Canyon Grocery,Paula Wilson,Assistant Sales Representative,Albuquerque,USA,(505) 555-5939
+REGGC,12,1996-08-23,1998-04-30,55.91,55.0,6,6258.7,7048.24,0.11,1998-08-19,active,Reggiani Caseifici,Maurizio Moroni,Sales Associate,Reggio Emilia,Italy,0522-556721
+RICAR,11,1996-08-22,1998-04-29,61.5,45.5,7,8895.9,12450.8,0.11,1998-08-30,active,Ricardo Adocicados,Janete Limeira,Assistant Sales Agent,Rio de Janeiro,Brazil,(21) 555-3412
+RICSU,10,1996-07-12,1998-05-06,73.67,73.0,0,14755.68,19343.78,0.0,1998-09-30,active,Richter Supermarkt,Michael Holz,Sales Manager,Genève,Switzerland,0897-034214
+ROMEY,5,1996-08-14,1998-04-09,150.75,35.0,27,726.89,1467.29,0.18,1999-02-04,too early to tell (slow buyer),Romero y tomillo,Alejandra Camino,Accounting Manager,Madrid,Spain,(91) 745 6200
+SANTG,6,1996-12-18,1998-04-10,95.6,113.0,26,4676.75,5735.15,0.27,1998-10-18,too early to tell (slow buyer),Santé Gourmet,Jonas Bergulfsen,Owner,Stavern,Norway,07-98 92 35
+SAVEA,31,1996-10-08,1998-05-01,19.0,14.0,5,82373.51,104361.95,0.26,1998-06-08,active,Save-a-lot Markets,Jose Pavarotti,Sales Representative,Boise,USA,(208) 555-8097
+SEVES,9,1996-11-21,1998-02-04,55.0,29.0,91,10651.24,16215.32,1.65,1998-05-25,overdue,Seven Seas Imports,Hari Kumar,Sales Manager,London,UK,(171) 555-1717
+SIMOB,7,1996-10-29,1998-05-06,92.33,92.5,0,5276.1,16817.1,0.0,1998-11-06,too early to tell (slow buyer),Simons bistro,Jytte Petersen,Owner,København,Denmark,31 12 34 56
+SPECD,4,1997-11-12,1998-04-22,53.67,33.0,14,2423.35,2423.35,0.26,1998-08-07,not regular (<5 orders),Spécialités du monde,Dominique Perrier,Marketing Manager,Paris,France,(1) 47.55.60.10
+SPLIR,9,1996-08-01,1998-03-25,75.12,43.5,42,3107.0,11441.63,0.56,1998-08-22,active,Split Rail Beer & Ale,Art Braunschweiger,Sales Manager,Lander,USA,(307) 555-4680
+SUPRD,12,1996-07-09,1998-04-21,59.18,22.0,15,11672.6,24088.78,0.25,1998-08-17,active,Suprêmes délices,Pascale Cartrain,Accounting Manager,Charleroi,Belgium,(071) 23 67 22 20
+THEBI,4,1996-09-20,1998-04-01,186.0,92.0,35,3025.0,3361.0,0.19,1999-04-08,not regular (<5 orders),The Big Cheese,Liz Nixon,Marketing Manager,Portland,USA,(503) 555-3612
+THECR,3,1997-08-07,1998-04-06,121.0,121.0,30,1947.24,1947.24,0.25,1998-12-04,not regular (<5 orders),The Cracker Box,Liu Wong,Marketing Assistant,Butte,USA,(406) 555-5834
+TOMSP,5,1997-02-06,1998-03-23,102.5,79.5,44,2214.5,2914.74,0.43,1998-10-14,too early to tell (slow buyer),Toms Spezialitäten,Karin Josephs,Marketing Manager,Münster,Germany,0251-031259
+TORTU,10,1996-08-08,1998-05-04,70.44,59.0,2,3247.8,10812.15,0.03,1998-09-21,active,Tortuga Restaurante,Miguel Angel Paolino,Owner,México D.F.,Mexico,(5) 555-2933
+TRADH,7,1996-07-05,1998-01-19,93.83,81.5,107,5554.66,8714.06,1.14,1998-07-25,too early to tell (slow buyer),Tradição Hipermercados,Anabela Domingues,Sales Representative,São Paulo,Brazil,(11) 555-2167
+TRAIH,3,1997-06-19,1998-01-08,101.5,101.5,118,1571.2,1571.2,1.16,1998-07-30,not regular (<5 orders),Trail's Head Gourmet Provisioners,Helvetius Nagy,Sales Associate,Kirkland,USA,(206) 555-8257
+VAFFE,11,1996-11-28,1998-04-02,49.0,40.0,34,10726.12,15843.92,0.69,1998-07-09,active,Vaffeljernet,Palle Ibsen,Sales Manager,Århus,Denmark,86 21 32 43
+VICTE,10,1996-07-08,1998-01-23,62.67,19.0,103,8383.57,9182.43,1.64,1998-05-28,overdue,Victuailles en stock,Mary Saveley,Sales Agent,Lyon,France,78.32.54.86
+VINET,4,1996-08-06,1997-11-12,154.33,27.0,175,379.8,1040.0,1.13,1998-09-16,not regular (<5 orders),Vins et alcools Chevalier,Paul Henriot,Accounting Manager,Reims,France,26.47.15.10
+WANDK,10,1996-09-09,1998-04-23,65.67,14.0,13,3806.62,9588.42,0.2,1998-09-01,active,Die Wandernde Kuh,Rita Müller,Sales Representative,Stuttgart,Germany,0711-020361
+WARTH,15,1996-07-26,1998-04-15,44.86,28.5,21,8401.14,15648.7,0.47,1998-07-13,active,Wartian Herkku,Pirkko Koskitalo,Accounting Manager,Oulu,Finland,981-443655
+WELLI,9,1996-07-15,1998-03-09,75.25,52.5,58,3842.56,6068.2,0.77,1998-08-06,active,Wellington Importadora,Paula Parente,Sales Manager,Resende,Brazil,(14) 555-8122
+WHITC,14,1996-07-31,1998-05-01,49.15,25.0,5,21411.43,27363.6,0.1,1998-08-07,active,White Clover Markets,Karl Jablonski,Owner,Seattle,USA,(206) 555-4112
+WILMK,8,1996-07-04,1998-04-07,91.71,40.0,29,3161.35,3601.35,0.32,1998-10-07,too early to tell (slow buyer),Wilman Kala,Matti Karttunen,Owner/Marketing Assistant,Helsinki,Finland,90-224 8858
+WOLZA,7,1996-12-05,1998-04-23,84.0,40.0,13,3072.95,3531.95,0.15,1998-10-08,active,Wolski  Zajazd,Zbyszek Piestrzeniewicz,Owner,Warszawa,Poland,(26) 642-7012

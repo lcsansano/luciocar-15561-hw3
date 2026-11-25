@@ -1,0 +1,13 @@
+,value
+rel_qty_25_vs_5_pct,2.668
+ci_low_pct,-12.062
+ci_high_pct,20.605
+breakeven_needed_pct,26.667
+products_sold_at_both,55.0
+products_25_sells_more,30.0
+products_25_sells_less,21.0
+median_product_ratio_25_vs_5,1.083
+customers_at_both,27.0
+same_customer_ratio_25_vs_5,1.083
+discount_given_total_usd,88652.971
+discount_given_above_10pct_usd,70717.064

@@ -11,7 +11,9 @@ Analysis of the Northwind trading company dataset. Python code here generates ev
 | `data/Northwind Database.xlsx` | The source dataset (8 sheets: Orders, Orders Details, Product, Customers, Suppliers, Employees, Categories, Shippers). |
 | `data/*.csv` | One CSV per sheet, exported unchanged by `scripts/01_data_check.py` (only a fully empty, unnamed Product column is dropped). |
 | `src/load.py` | Shared loader. It reads the CSVs, applies the cleaning rules (rounded discounts, Product exercise columns dropped), and joins order lines with orders, customers, products, categories and employees. It computes `Revenue = UnitPrice × Quantity × (1 − Discount)` and builds a one-row-per-order table. It stops with an error if row counts, joins or the revenue total ($1,265,793.04) don't match. |
-| `scripts/q1_discount_check.py` | Within-product check: do 25% discounts sell more units than 5%? |
+| `src/q3_country_growth.py` | Q3: country growth, matching months, constant prices → `results/q3_*` |
+| `src/q2_lost_customers.py` | Q2: call list of regular customers who stopped, plus a follow-up calendar for slow buyers → `results/q2_*` |
+| `src/q1_discounts.py` | Q1: units per line by discount level (same product), compared with break-even. This is a link, not cause → `results/q1_*` |
 | `scripts/01_data_check.py` | Profiles every sheet and checks keys, joins, missing values and oddities, then writes the CSVs. |
 | `requirements.txt` | Pinned Python packages. |
 | `.claude/skills/python-docstrings/SKILL.md` | The course-provided docstring skill, installed for Claude Code and used to document all Python code. |
@@ -30,6 +32,9 @@ python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python scripts/01_data_check.py   # data checks + CSV export
 .venv/bin/python -m src.load                # build and verify the joined tables
+.venv/bin/python -m src.q3_country_growth
+.venv/bin/python -m src.q2_lost_customers
+.venv/bin/python -m src.q1_discounts
 ```
 
 Run all commands from the repository root.

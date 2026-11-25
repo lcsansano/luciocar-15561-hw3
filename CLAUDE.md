@@ -23,6 +23,7 @@ Rules Claude follows in this project. They come from the assignment PDF in this 
 - Sheets: Orders (830), Orders Details (2,155), Product (77), Customers (91), Suppliers (29), Employees (9), Categories (8), Shippers (3).
 - Dates are Excel serial numbers. Convert with origin 1899-12-30.
 - Revenue per line = `UnitPrice × Quantity × (1 − Discount)`, using the **order-line** UnitPrice, not `Product.Price`.
+  - **One narrow exception:** to measure *volume* growth across the April 1997 price rise, lines may be valued at one fixed price list (`ListPrice`). That gives growth at constant prices. Any chart using it must say "volume", never "revenue", and explain why. `ListPrice` is never used for revenue, dot sizes or value at risk. (Used only in Q3.)
 - Product has leftover columns from an earlier exercise (`Cheap` and `NewPrice` each twice, plus `IsCheap`). Ignore them unless a question needs them, and say so.
 - The data covers **4 Jul 1996 – 6 May 1998**. 1996 and 1998 are partial years, and May 1998 has only 14 orders. Never compare raw yearly totals across partial years. Use full months, matching periods (e.g. Jan–Apr vs Jan–Apr), or run-rates, and state which.
 - Shipped date can be missing (unshipped orders), and Region/Fax fields are often blank. Handle these explicitly and note it.
@@ -43,7 +44,7 @@ Rules Claude follows in this project. They come from the assignment PDF in this 
   - **Q3** Which countries are growing or shrinking? Compare matching months.
   - **Q2** Which regular customers stopped ordering, and who should sales call first?
   - **Q4** How dependent are we on a few big customers?
-  - **Only these three go on the webpage** (student's decision). Q1 (discount cap) stays as a side check in `scripts/q1_discount_check.py` and is not on the page.
+  - **Q1** Do deeper discounts sell more, or are we giving away revenue? This was added back by the student and is done in `src/q1_discounts.py`. Always present it as a **link, not cause and effect**.
 - **At least 3** meaningful business questions, each tied to a decision, opportunity, risk or operational understanding. Avoid "simple lookup" questions such as "Which product has the most orders?".
 - Each question gets, in this order: **the question → why it matters → analytical approach → visualization or table → main finding → business implication**.
 - At least one purposeful visualization per question, unless a table communicates the result better. Pick the chart type for the job (line for time, bar for ranking, scatter for relationships, box/histogram for distributions, heatmap for two dimensions).
@@ -62,7 +63,7 @@ Rules Claude follows in this project. They come from the assignment PDF in this 
 ## 8. Publishing and submission
 - GitHub repo: https://github.com/lcsansano/luciocar-15561-hw3 (public). It contains the code, `README.md`, `CLAUDE.md`, `.claude/skills/`, the dataset and the generated outputs. `.gitignore` keeps out the assignment PDF, the duplicate `SKILL (3).md`, `notes/`, and Python/macOS junk.
 - No git on this Mac (the student declined Command Line Tools for disk space). Upload with `.venv/bin/python tools/upload_to_github.py -m "<message>"`. It uses the logged-in `gh` (`~/.local/bin/gh`), respects `.gitignore`, and commits a full snapshot. Run `--dry-run` first. Never create a new repo. The student completes any GitHub sign-in step themselves.
-- **Upload reminders (updated by the student):** don't ask after every change. Remind only when a milestone is finished. The next one is when all three questions (Q3, Q2, Q4) are done. Then list everything that changed and offer to upload. Don't upload without their OK. Always remind before anything is called "done" or ready to submit.
+- **Upload reminders (updated by the student):** don't ask after every change. Remind only when a milestone is finished. The next one is when all four questions (Q3, Q2, Q1, Q4) are done. Then list everything that changed and offer to upload. Don't upload without their OK. Always remind before anything is called "done" or ready to submit.
 - Webpage hosting: default is GitHub Pages from the same repo (`docs/index.html`). Confirm with the student before enabling it or publishing anywhere else.
 - Before calling anything done, open each public URL while logged out (incognito-equivalent) and confirm the page and all its charts load.
 - Ask before any action that publishes or changes something online (creating, uploading, settings changes).

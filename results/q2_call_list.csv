@@ -1,9 +1,9 @@
-priority,status,CompanyName,Country,ContactName,ContactTitle,Phone,last_order,days_quiet,usual_gap_days,orders,value_at_risk_usd,check_back_by
-1,likely lost,Mère Paillarde,Canada,Jean Fresnière,Marketing Assistant,(514) 555-8054,1997-10-30,188,31.5,13,26400.4,1998-01-01
-2,likely lost,Blondel père et fils,France,Frédérique Citeaux,Marketing Manager,88.60.15.31,1998-01-12,114,53.6,11,9507.8,1998-04-29
-3,likely lost,Familia Arquibaldo,Brazil,Aria Cruz,Marketing Assistant,(11) 555-9857,1997-10-31,187,59.8,7,4410.2,1998-02-27
-4,likely lost,Hungry Coyote Import Store,USA,Yoshi Latimer,Sales Representative,(503) 555-6874,1997-09-08,240,69.0,5,3285.0,1998-01-24
-5,overdue,Berglunds snabbköp,Sweden,Christina Berglund,Order Administrator,0921-12 34 65,1998-03-04,63,33.5,18,19396.6,1998-05-09
-6,overdue,Folies gourmandes,France,Martine Rancé,Assistant Sales Agent,20.16.10.16,1997-12-22,135,87.0,5,12263.7,1998-06-14
-7,overdue,Seven Seas Imports,UK,Hari Kumar,Sales Manager,(171) 555-1717,1998-02-04,91,55.0,9,10910.4,1998-05-25
-8,overdue,Victuailles en stock,France,Mary Saveley,Sales Agent,78.32.54.86,1998-01-23,103,62.7,10,9024.8,1998-05-28
+rank,status,CompanyName,Country,value_at_risk_usd,usual_gap_days,days_quiet,last_order,orders,ContactName,ContactTitle,Phone,check_back_by
+1,likely lost,Mère Paillarde,Canada,23731.3,31.5,188,1997-10-30,13,Jean Fresnière,Marketing Assistant,(514) 555-8054,1998-01-01
+2,overdue,Berglunds snabbköp,Sweden,19396.6,33.5,63,1998-03-04,18,Christina Berglund,Order Administrator,0921-12 34 65,1998-05-09
+3,overdue,Folies gourmandes,France,11666.9,87.0,135,1997-12-22,5,Martine Rancé,Assistant Sales Agent,20.16.10.16,1998-06-14
+4,overdue,Seven Seas Imports,UK,10651.2,55.0,91,1998-02-04,9,Hari Kumar,Sales Manager,(171) 555-1717,1998-05-25
+5,likely lost,Blondel père et fils,France,8547.9,53.6,114,1998-01-12,11,Frédérique Citeaux,Marketing Manager,88.60.15.31,1998-04-29
+6,overdue,Victuailles en stock,France,8383.6,62.7,103,1998-01-23,10,Mary Saveley,Sales Agent,78.32.54.86,1998-05-28
+7,likely lost,Familia Arquibaldo,Brazil,4107.6,59.8,187,1997-10-31,7,Aria Cruz,Marketing Assistant,(11) 555-9857,1998-02-27
+8,likely lost,Hungry Coyote Import Store,USA,3063.2,69.0,240,1997-09-08,5,Yoshi Latimer,Sales Representative,(503) 555-6874,1998-01-24
