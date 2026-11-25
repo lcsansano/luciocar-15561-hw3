@@ -18,8 +18,11 @@ SCRIPTS = [
       "results/q2_lost_customers.png", "results/q2_check_back_calendar.csv"]),
     (["-m", "src.q1_discounts"],
      ["results/q1_discount_levels.csv", "results/q1_discounts.png"]),
+    (["-m", "src.build_site"],
+     ["docs/index.html", "docs/img/q3_country_growth.png",
+      "docs/img/q2_lost_customers.png", "docs/img/q1_discounts.png"]),
     (["run_all.py"], ["results/q1_summary.csv", "results/q2_call_list.png",
-                      "results/q3_country_growth.png"]),
+                      "results/q3_country_growth.png", "docs/index.html"]),
 ]
 
 

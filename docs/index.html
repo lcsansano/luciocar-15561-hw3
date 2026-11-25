@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northwind: where to act</title>
+<meta name="description" content="Business analysis of the Northwind dataset: growing and shrinking markets, customers who stopped ordering, and whether deep discounts pay off.">
+<style>
+:root {
+  --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781; --line: #e1e0d9;
+  --surface: #fcfcfb; --panel: #f4f3ef; --blue: #2a78d6; --red: #e34948;
+  --orange: #c9531f;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--surface); color: var(--ink);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Helvetica, Arial, sans-serif; }
+main { max-width: 860px; margin: 0 auto; padding: 48px 20px 80px; }
+h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 12px; }
+h2 { font-size: 1.5rem; line-height: 1.3; margin: 64px 0 8px;
+  padding-top: 24px; border-top: 1px solid var(--line); }
+h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--muted); margin: 28px 0 4px; }
+p, li { color: var(--ink); }
+.lead { font-size: 1.15rem; color: var(--ink-2); }
+.kicker { color: var(--blue); font-weight: 700; font-size: .85rem;
+  text-transform: uppercase; letter-spacing: .06em; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px; margin: 28px 0; }
+.fact { background: var(--panel); border-radius: 10px; padding: 14px 16px; }
+.fact b { display: block; font-size: 1.35rem; }
+.fact span { color: var(--ink-2); font-size: .85rem; }
+.summary { background: var(--panel); border-radius: 12px; padding: 18px 22px; }
+.summary li { margin: 6px 0; }
+figure { margin: 20px 0; }
+figure img { width: 100%; height: auto; border: 1px solid var(--line);
+  border-radius: 8px; background: #fff; }
+figcaption { color: var(--muted); font-size: .85rem; margin-top: 6px; }
+.finding { border-left: 4px solid var(--blue); padding: 4px 0 4px 16px;
+  margin: 20px 0; }
+.action { border-left: 4px solid var(--ink); padding: 4px 0 4px 16px;
+  margin: 20px 0; }
+.caveat { color: var(--ink-2); font-size: .92rem; }
+.tablewrap { overflow-x: auto; margin: 16px 0; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line);
+  vertical-align: top; }
+th { color: var(--ink-2); font-weight: 600; white-space: nowrap; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+td small { color: var(--muted); }
+.tag { font-weight: 700; font-size: .8rem; white-space: nowrap; }
+.tag.lost { color: var(--red); }
+.tag.overdue { color: var(--orange); }
+footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line);
+  color: var(--muted); font-size: .85rem; }
+a { color: var(--blue); }
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  main { padding: 28px 16px 60px; }
+  h1 { font-size: 1.6rem; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<p class="kicker">Northwind Traders · analysis for management</p>
+<h1>Growth is real, but it rests on a few markets and a few customers</h1>
+<p class="lead">Northwind is a food and drink wholesaler selling to shops and
+restaurants. This page answers three questions that each lead to a decision:
+where to focus sales effort, which customers to call first, and whether deep
+discounts pay off.</p>
+
+<div class="facts">
+  <div class="fact"><b>$1,265,793</b><span>net revenue</span></div>
+  <div class="fact"><b>830</b><span>orders</span></div>
+  <div class="fact"><b>89</b><span>customers who ordered</span></div>
+  <div class="fact"><b>21</b><span>customer countries</span></div>
+</div>
+<p class="caveat">Data: every order from 4 Jul 1996 to 6 May 1998. 1996 and
+1998 are partial years, so every comparison below uses matching months.</p>
+
+<div class="summary">
+<b>In short</b>
+<ul>
+<li><b>Sales volume grew +56%</b> year on year
+(+90% in revenue, the difference being an April 1997 price
+rise). USA and Germany delivered
+52% of that growth.</li>
+<li><b>8 regular customers have gone quiet</b>, worth about
+$89.5k a year. Mère Paillarde alone is
+$23.7k.</li>
+<li><b>Deep discounts don't pay for themselves.</b> A 25% discount would need
+27% more units than a 5% discount to bring in the same revenue;
+it is linked to about 3% more.</li>
+</ul>
+</div>
+
+<!-- ============================ Q3 ============================ -->
+<h2>1. Which customer countries are growing or shrinking?</h2>
+
+<h3>Why it matters</h3>
+<p>Sales time is limited. Knowing which markets carry the growth, and which are
+slipping, tells the manager where to add effort and where to look for
+problems before they grow.</p>
+
+<h3>Approach</h3>
+<p>I compared the same 10 calendar months in both periods: July 1997 to April
+1998 against July 1996 to April 1997. That keeps seasonality equal. Prices
+rose about 25% in April 1997, so revenue growth would partly be price. I
+therefore measured <b>sales volume</b>: every sale valued at one fixed price
+list. Countries with fewer than 10 orders in either period
+(11 of them) are grouped as "Other countries", because a single
+order can swing their percentage.</p>
+
+<figure>
+<img src="img/q3_country_growth.png" alt="Bar chart of sales volume growth by customer country. Sweden, Germany, USA, Brazil and the UK grow faster than the company average of +56%; Venezuela and Austria grow more slowly; France, Canada and Mexico shrink." loading="lazy">
+<figcaption>Volume growth by customer country, Jul 1997–Apr 1998 vs the same
+months a year earlier. ($k) = sales in the recent 10 months.</figcaption>
+</figure>
+
+<h3>Main finding</h3>
+<div class="finding">
+<p>Volume grew +56% overall. <b>USA
+(+83%) and Germany (+94%) delivered
+52% of all growth.</b> Venezuela (+39%, $33.9k in sales) and Austria (+32%, $72.5k in sales) grew, but more slowly than
+the company, so they are losing share. Three markets shrank, and in each one
+the decline traces back to a single customer:</p>
+<ul><li><b>France</b> (-5%): Blondel père et fils alone lost $15.4k of volume; the whole country lost $2.2k.</li><li><b>Canada</b> (-13%): Mère Paillarde alone lost $10.1k of volume; the whole country lost $3.7k.</li><li><b>Mexico</b> (-51%): Tortuga Restaurante alone lost $6.4k of volume; the whole country lost $6.7k.</li></ul>
+</div>
+
+<h3>Business implication</h3>
+<div class="action">
+<p>Protect and expand USA and Germany, which are
+the growth engine. In France, Canada, Mexico, don't cut market effort: the
+problem is specific accounts, not the market. Call those customers first
+(see the next question). Keep an eye on the slower-growing markets.</p>
+</div>
+<p class="caveat">Caveats: one or two customers drive most countries' numbers
+in both directions, and "volume" means less value, not necessarily fewer
+units (some markets switched to cheaper products).</p>
+
+<!-- ============================ Q2 ============================ -->
+<h2>2. Which regular customers stopped ordering, and who should sales call first?</h2>
+
+<h3>Why it matters</h3>
+<p>Keeping an existing customer is cheaper than finding a new one, and growth
+here comes almost entirely from existing customers buying more. A customer
+who quietly stops ordering is lost revenue that nobody notices until the
+year-end numbers.</p>
+
+<h3>Approach</h3>
+<p>I judged each of the 72 regular customers (5+ orders) against
+<b>their own rhythm</b>: the average number of days between their orders. A
+customer quiet for more than <b>2×</b> their usual gap is "likely lost"; more
+than <b>1.5×</b> is "overdue". The average is used rather than the median
+because customers order in bursts, and the median would make them look more
+frequent than they are. Value at risk is the actual revenue in the 12 months
+before their last order.</p>
+
+<figure>
+<img src="img/q2_lost_customers.png" alt="Scatter chart of days since last order against each customer's average gap between orders. Eight customers sit above the 1.5x and 2x lines; their dot numbers match the call list." loading="lazy">
+<figcaption>Each dot is a regular customer. Numbers match the call list
+below. Slow buyers (every 90+ days) are shown separately.</figcaption>
+</figure>
+
+<h3>Main finding: the call list</h3>
+<div class="finding">
+<p><b>8 regular customers have gone quiet</b>
+(4 likely lost, 4 overdue). Together they were
+worth <b>$89.5k a year</b>, about 10% of
+current annual sales.</p>
+</div>
+<div class=tablewrap><table><thead><tr><th>#</th><th>Customer</th><th>Country</th><th>Status</th><th class=num>Revenue,<br>last 12 mo</th><th class=num>Usual gap<br>(avg days)</th><th class=num>Days<br>quiet</th><th>Contact</th></tr></thead><tbody><tr><td class=num>1</td><td>Mère Paillarde</td><td>Canada</td><td><span class='tag lost'>likely lost</span></td><td class=num>$23,731</td><td class=num>32</td><td class=num>188</td><td>Jean Fresnière<br><small>(514) 555-8054</small></td></tr><tr><td class=num>2</td><td>Berglunds snabbköp</td><td>Sweden</td><td><span class='tag overdue'>overdue</span></td><td class=num>$19,397</td><td class=num>33</td><td class=num>63</td><td>Christina Berglund<br><small>0921-12 34 65</small></td></tr><tr><td class=num>3</td><td>Folies gourmandes</td><td>France</td><td><span class='tag overdue'>overdue</span></td><td class=num>$11,667</td><td class=num>87</td><td class=num>135</td><td>Martine Rancé<br><small>20.16.10.16</small></td></tr><tr><td class=num>4</td><td>Seven Seas Imports</td><td>UK</td><td><span class='tag overdue'>overdue</span></td><td class=num>$10,651</td><td class=num>55</td><td class=num>91</td><td>Hari Kumar<br><small>(171) 555-1717</small></td></tr><tr><td class=num>5</td><td>Blondel père et fils</td><td>France</td><td><span class='tag lost'>likely lost</span></td><td class=num>$8,548</td><td class=num>54</td><td class=num>114</td><td>Frédérique Citeaux<br><small>88.60.15.31</small></td></tr><tr><td class=num>6</td><td>Victuailles en stock</td><td>France</td><td><span class='tag overdue'>overdue</span></td><td class=num>$8,384</td><td class=num>63</td><td class=num>103</td><td>Mary Saveley<br><small>78.32.54.86</small></td></tr><tr><td class=num>7</td><td>Familia Arquibaldo</td><td>Brazil</td><td><span class='tag lost'>likely lost</span></td><td class=num>$4,108</td><td class=num>60</td><td class=num>187</td><td>Aria Cruz<br><small>(11) 555-9857</small></td></tr><tr><td class=num>8</td><td>Hungry Coyote Import Store</td><td>USA</td><td><span class='tag lost'>likely lost</span></td><td class=num>$3,063</td><td class=num>69</td><td class=num>240</td><td>Yoshi Latimer<br><small>(503) 555-6874</small></td></tr></tbody></table></div>
+
+<h3>Business implication</h3>
+<div class="action">
+<p>Sales should call these customers this week, in this order, and ask why
+they stopped: price, service, a competitor, or a closed business. The answers
+tell the manager whether there is a wider problem. For the 16 slow
+buyers who order only every few months, it is too early to judge; they go on
+a follow-up calendar with a "check back by" date instead. The first is Tradição Hipermercados (Brazil): check back by 25 July 1998.</p>
+</div>
+<p class="caveat">Caveats: the data ends on 6 May 1998, so some "overdue"
+customers may simply be about to order. A second rule (quiet for longer than
+their longest-ever gap) finds exactly the same four "likely lost"
+customers.</p>
+
+<!-- ============================ Q1 ============================ -->
+<h2>3. Do deeper discounts sell more, or are we giving away revenue?</h2>
+
+<h3>Why it matters</h3>
+<p>Northwind gave away $88.7k in discounts, and
+<b>$70.7k (80%) of it came from
+discounts above 10%</b>. If deep discounts don't lead to bigger orders, that
+money is simply lost revenue, and a discount cap would recover it.</p>
+
+<h3>Approach</h3>
+<p>Order sizes differ a lot between products, so I compared <b>each product
+with itself</b>: units per order line divided by that product's typical
+order size (1.0 = typical). Then I compared what a deeper discount
+<i>actually</i> sold with what it <i>would need</i> to sell to bring in as
+much revenue as a 5% discount. Going from 5% to 25% cuts the price by 21%,
+so units would have to rise 27%.</p>
+
+<figure>
+<img src="img/q1_discounts.png" alt="Dot chart of order size by discount level with 95% ranges. Order size is about 0.91 with no discount and 1.06 to 1.19 at every discount level, while the order size needed to break even rises to 1.47 at 25%." loading="lazy">
+<figcaption>Blue: actual order size with 95% range. Red: order size needed to
+earn as much as at 5%.</figcaption>
+</figure>
+
+<h3>Main finding</h3>
+<div class="finding">
+<p><b>A 25% discount is linked to only about 3% more units than
+a 5% discount</b> (95% range -12% to +21%),
+far short of the 27% needed. Even the top of the range falls
+short. Any discount is linked to larger orders than no discount
+(0.91 vs 1.16), but going deeper adds almost
+nothing. Two other checks agree: across the 55 products sold at
+both levels, 30 sold more at 25% and 21 sold less, and
+the same 27 customers bought only 1.08× as much
+at 25% as at 5%.</p>
+</div>
+
+<h3>Business implication</h3>
+<div class="action">
+<p>Cap standard discounts at around 5–10%, and allow deeper ones only with
+manager approval or a minimum order size. Because this is a link and not a
+proven cause, run the cap as a test first: apply it to some customers or
+months and compare order sizes before rolling it out everywhere.</p>
+</div>
+<p class="caveat"><b>This shows a link, not cause and effect.</b> Discounts
+are not handed out at random (big customers may get them because they are
+big), and there is no cost data, so margin itself can't be measured.</p>
+
+<!-- ============================ Method ============================ -->
+<h2>About the data and method</h2>
+<ul>
+<li><b>Revenue</b> = price actually charged × quantity × (1 − discount), from
+the order lines. Total $1,265,793; data checks found no duplicate keys
+and no broken links between tables.</li>
+<li><b>Country</b> is the customer's country, not the ship-to address (4
+orders have mixed-up ship-to addresses).</li>
+<li>Leftover exercise columns in the Product sheet were ignored. One order
+with unusual 1–6% discounts was left out of question 3.</li>
+<li>All numbers, charts and this page are produced by Python code. A test
+suite checks every headline number, and a fresh copy reproduces every output
+byte for byte.</li>
+</ul>
+<p><b>Code and step-by-step reproduction:</b>
+<a href="https://github.com/lcsansano/luciocar-15561-hw3">github.com/lcsansano/luciocar-15561-hw3</a></p>
+
+<footer>15.561 HW3 · Built with Python from the Northwind database ·
+analysis assisted by Claude Code.</footer>
+</main>
+</body>
+</html>

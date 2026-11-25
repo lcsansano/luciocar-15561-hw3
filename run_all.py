@@ -1,4 +1,4 @@
-"""Regenerate every CSV, table and chart from the Northwind workbook.
+"""Regenerate every CSV, chart and the webpage from the workbook.
 
 Run from the project root:
     python run_all.py
@@ -17,6 +17,7 @@ STEPS = [
     ("Q3 country volume growth", ["-m", "src.q3_country_growth"]),
     ("Q2 lost customers", ["-m", "src.q2_lost_customers"]),
     ("Q1 discounts", ["-m", "src.q1_discounts"]),
+    ("Build webpage", ["-m", "src.build_site"]),
 ]
 
 
