@@ -56,7 +56,7 @@ Rules Claude follows in this project. They come from the assignment PDF in this 
 
 ## 8. Publishing and submission
 - GitHub repo: https://github.com/lcsansano/luciocar-15561-hw3 (public). It contains the code, `README.md`, `CLAUDE.md`, `.claude/skills/`, the dataset and the generated outputs. `.gitignore` keeps out the assignment PDF, the duplicate `SKILL (3).md`, `notes/`, and Python/macOS junk.
-- This folder is the local git clone of that repo; push to it, never create a new repo. The student completes any GitHub sign-in or token step themselves.
+- No git on this Mac (the student declined Command Line Tools for disk space). Upload with `.venv/bin/python tools/upload_to_github.py -m "<message>"`. It uses the logged-in `gh` (`~/.local/bin/gh`), respects `.gitignore`, and commits a full snapshot. Run `--dry-run` first. Never create a new repo. The student completes any GitHub sign-in step themselves.
 - Webpage hosting: default is GitHub Pages from the same repo (`docs/index.html`). Confirm with the student before enabling it or publishing anywhere else.
 - Before calling anything done, open each public URL while logged out (incognito-equivalent) and confirm the page and all its charts load.
 - Ask before any action that publishes or changes something online (creating, uploading, settings changes).
